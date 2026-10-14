@@ -1,0 +1,1721 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antena1 Hotel TV — TV por assinatura para hotéis</title>
+<meta name="description" content="TV por assinatura e TV interativa para hotéis: modelos IP → RF e IP → IP, grade de canais sob medida, plataforma de hospitalidade e implantação sem obra. Antena1 Tecnologia, Fortaleza/CE.">
+<meta name="theme-color" content="#070B1E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#060B10;
+  --card:#0B161E;
+  --card-2:#0F1C25;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.16);
+  --text:#F1F4F6;
+  --soft:#C9D1D7;
+  --dim:#7C8892;
+  --grey:#8D979F;
+  --accent:#3A93B5;
+  --accent-2:#2F7FA0;
+  --cyan:#3FD4E8;
+  --font:'Inter Tight', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --pad:clamp(20px, 4.4vw, 64px);
+  --max:1320px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,figure,ul,ol,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+::selection{background:var(--cyan);color:var(--bg)}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* page atmosphere: faint vertical lines + teal glow */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.018) 0 1px, transparent 1px 120px),
+    radial-gradient(1200px 700px at 50% -10%, rgba(38,96,128,.28), transparent 70%);
+}
+main,footer,.ticker{position:relative;z-index:1}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+
+/* ---------- small type ---------- */
+.label{display:inline-flex;align-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.label.lined::before{content:"";width:44px;height:1px;background:var(--line-2)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);flex:none}
+
+/* ---------- headlines: white lines, grey lines ---------- */
+.big{font-weight:500;letter-spacing:-.05em;line-height:.94}
+.big .w,.big .g{display:block}
+.big .g{color:var(--grey)}
+.h-hero{font-size:clamp(46px, 8.2vw, 124px)}
+.h-sec{font-size:clamp(42px, 6.4vw, 100px)}
+.mask{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.mask > span{display:block}
+
+/* ---------- pills ---------- */
+.pill{display:inline-flex;align-items:center;gap:16px;height:56px;padding:0 10px 0 28px;border:1px solid var(--line-2);border-radius:999px;background:rgba(6,11,16,.55);font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:border-color .3s ease, background-color .3s ease, transform .2s var(--ease)}
+.pill .arr{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line-2);border-radius:50%;transition:transform .35s var(--ease), background-color .3s ease, border-color .3s ease, color .3s ease}
+.pill .arr svg{width:12px;height:12px}
+.pill:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.04)}
+.pill:hover .arr{transform:rotate(45deg);background:var(--text);color:var(--bg);border-color:var(--text)}
+.pill:active{transform:scale(.97)}
+.pill.solid{background:var(--accent);border-color:var(--accent)}
+.pill.solid:hover{background:var(--accent-2)}
+
+/* ---------- ticker ---------- */
+.ticker{display:flex;justify-content:center;align-items:center;gap:18px;overflow:hidden;white-space:nowrap;background:#000;height:36px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line)}
+.ticker b{color:var(--text);font-weight:600}
+.ticker i{font-style:normal;opacity:.4}
+.ticker a{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);transition:gap .3s var(--ease)}
+.ticker a:hover{gap:14px}
+
+/* ---------- header ---------- */
+.head{position:sticky;top:0;z-index:30;height:0}
+.head::before{content:"";position:absolute;left:0;right:0;top:0;height:120px;background:linear-gradient(180deg, rgba(6,11,16,.92), rgba(6,11,16,.6) 55%, transparent);opacity:0;transition:opacity .4s ease;pointer-events:none}
+.head.scrolled::before{opacity:1}
+.head-in{position:relative}
+.head-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px var(--pad)}
+.logo{display:flex;align-items:baseline;gap:8px;font-size:26px;font-weight:600;letter-spacing:-.05em}
+.logo small{font-size:15px;font-weight:400;letter-spacing:-.01em;color:var(--soft)}
+.nav{display:flex;align-items:center;gap:6px;height:50px;padding:0 8px;border:1px solid var(--line-2);border-radius:999px;background:rgba(8,14,20,.6);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.nav a{padding:8px 16px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);border-radius:999px;transition:color .25s ease, background-color .25s ease}
+.nav a:hover,.nav a.on{color:var(--text);background:rgba(255,255,255,.07)}
+.head .pill{height:48px;background:rgba(8,14,20,.6);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px var(--pad) 100px;position:relative;overflow:hidden}
+.rings{position:absolute;left:50%;top:56%;width:0;height:0;pointer-events:none}
+.rings span{position:absolute;left:50%;top:50%;border:1px solid rgba(255,255,255,.055);border-radius:50%;transform:translate(-50%,-50%)}
+.rings span:nth-child(1){width:420px;height:420px}
+.rings span:nth-child(2){width:760px;height:760px}
+.rings span:nth-child(3){width:1100px;height:1100px}
+.rings span:nth-child(4){width:1460px;height:1460px}
+.glow{position:absolute;left:50%;top:58%;width:900px;height:620px;transform:translate(-50%,-50%);background:radial-gradient(closest-side, rgba(52,130,165,.32), transparent);pointer-events:none}
+.hero-meta{position:absolute;top:150px;right:var(--pad);display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;color:var(--dim);font-weight:600}
+.hero-meta svg{width:12px;height:12px}
+.emblem{width:120px;margin-bottom:30px;position:relative}
+.hero .big,.hero .lead,.hero .pill{position:relative}
+.hero p.lead{margin-top:34px;max-width:580px;font-size:18px;color:var(--soft)}
+.hero .pill{margin-top:44px}
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:1px;height:54px;background:linear-gradient(var(--line-2), transparent);overflow:hidden}
+.scroll-cue::after{content:"";position:absolute;left:0;top:-30%;width:1px;height:30%;background:var(--text);animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{to{top:110%}}
+
+/* ---------- chrome blob ---------- */
+.blob{position:absolute;pointer-events:none;z-index:0}
+.blob svg{width:100%;height:auto;overflow:visible}
+.b1{animation:b1 9s ease-in-out infinite alternate}
+.b2{animation:b2 11s ease-in-out infinite alternate}
+.b3{animation:b3 7s ease-in-out infinite alternate}
+@keyframes b1{to{transform:translate(14px,-8px)}}
+@keyframes b2{to{transform:translate(-18px,12px)}}
+@keyframes b3{to{transform:translate(14px,22px)}}
+.float{animation:float 12s ease-in-out infinite alternate}
+@keyframes float{to{transform:translateY(-26px) rotate(-6deg)}}
+.blob-r{right:-110px;width:420px}
+.blob-l{left:-130px;width:380px}
+
+/* ---------- media card ---------- */
+.media{position:relative;border-radius:32px;overflow:hidden;height:min(82svh,780px);background:var(--card);isolation:isolate}
+.media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease, transform 9s linear}
+.media img.on{opacity:1;transform:scale(1)}
+.media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(6,11,16,.1) 40%, rgba(6,11,16,.85));z-index:1}
+.media-frame{position:absolute;inset:20px;border:1px solid rgba(255,255,255,.22);border-radius:22px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding:28px 32px}
+.media-frame h2{font-size:clamp(26px,2.6vw,36px);font-weight:500;letter-spacing:-.03em;line-height:1.1;margin-top:10px;max-width:22ch}
+.media-frame .label{color:var(--soft)}
+.ctrl{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:rgba(0,0,0,.5);cursor:pointer;flex:none;transition:background-color .25s ease, transform .2s var(--ease)}
+.ctrl:hover{background:rgba(255,255,255,.12)}
+.ctrl:active{transform:scale(.92)}
+.ctrl svg{width:14px;height:14px}
+.media-credit{position:absolute;right:52px;top:44px;z-index:2;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+
+/* ---------- sections ---------- */
+.sec{position:relative;padding:clamp(110px,13vw,190px) 0;overflow:hidden}
+.sec + .sec{border-top:1px solid var(--line)}
+.sec .wrap{position:relative;z-index:1}
+.sec-head{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:end}
+.sec-head .label{margin-bottom:34px}
+.sec-head p{color:var(--soft);font-size:18px;max-width:46ch;padding-bottom:10px}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:clamp(64px,8vw,110px)}
+.facts div{border-top:1px solid var(--line-2);padding-top:22px}
+.facts dt{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.facts dd{margin-top:10px;font-size:21px;letter-spacing:-.02em;line-height:1.3}
+
+/* models */
+.models{display:flex;flex-direction:column;gap:20px;margin-top:clamp(56px,7vw,96px)}
+.model{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border-radius:30px;overflow:hidden;background:#0A0F14;border:1px solid var(--line)}
+.model-vis{position:relative;min-height:460px;padding:18px;overflow:hidden}
+.model-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.55) brightness(.6);transition:transform 1.2s var(--ease), filter .8s ease}
+.model:hover .model-vis img{transform:scale(1.05);filter:grayscale(.15) brightness(.68)}
+.model-vis-in{position:relative;height:100%;min-height:424px;border:1px solid rgba(255,255,255,.22);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.model-vis-in strong{font-size:clamp(84px,10vw,150px);font-weight:500;letter-spacing:-.06em;line-height:.85}
+.model-vis-in .label{color:var(--text);margin-top:18px;letter-spacing:.3em}
+.model-vis-in small{margin-top:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);font-weight:600}
+.model-vis-in .corner{position:absolute;left:18px;bottom:16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);font-weight:600}
+.model-body{padding:clamp(28px,4vw,56px);display:flex;flex-direction:column}
+.model-body h3{font-size:clamp(30px,3vw,44px);font-weight:500;letter-spacing:-.04em;line-height:1.05;margin-top:18px}
+.model-body > p{color:var(--soft);margin-top:18px;max-width:52ch}
+.model-info{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:auto;padding-top:28px;border-top:1px solid var(--line)}
+.model-body > p + .model-info{margin-top:36px}
+.model-info dt{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.model-info dd{margin-top:8px;font-size:16px;line-height:1.35}
+.model-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:30px;flex-wrap:wrap}
+.model-foot .label a{transition:color .25s ease}
+.model-foot .label a:hover{color:var(--text)}
+.more{margin-top:26px}
+
+/* channels */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(48px,6vw,80px)}
+.chip{height:40px;padding:0 18px;border-radius:999px;border:1px solid var(--line-2);background:transparent;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);cursor:pointer;transition:background-color .25s ease, color .25s ease, border-color .25s ease, transform .2s var(--ease)}
+.chip:hover{border-color:rgba(255,255,255,.4);color:var(--text)}
+.chip:active{transform:scale(.96)}
+.chip[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.ch-meta{display:flex;justify-content:space-between;gap:16px;margin-top:22px}
+.grid-ch{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:18px}
+.ch{position:relative;aspect-ratio:1/.86;border-radius:20px;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px;overflow:hidden;transition:border-color .35s ease, background-color .35s ease, transform .5s var(--ease)}
+.ch::before{content:"";position:absolute;inset:-40%;background:radial-gradient(closest-side, rgba(63,212,232,.16), transparent);opacity:0;transition:opacity .45s ease}
+.ch:hover{border-color:rgba(255,255,255,.28);background:var(--card-2);transform:translateY(-4px)}
+.ch:hover::before{opacity:1}
+.ch img{position:relative;width:42%;height:auto;aspect-ratio:1;object-fit:contain;margin:-4% 0 -6%;transform:scale(var(--s,1));transition:transform .5s var(--ease)}
+.ch img.wide{--s:1.5}
+.ch img.xl{--s:1.9}
+.ch:hover img{transform:scale(calc(var(--s,1) * 1.08))}
+.ch span{position:relative;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);text-align:center}
+.ch.out{display:none}
+.ch.pop{animation:pop .5s var(--ease) both}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}}
+.ch-note{margin-top:24px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:600}
+
+/* platform */
+.plat{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);margin-top:clamp(56px,7vw,96px);align-items:start}
+.demo{position:sticky;top:110px;border-radius:30px;background:#0A0F14;border:1px solid var(--line);padding:clamp(18px,2.4vw,30px)}
+.tv{container-type:inline-size}
+.tv-bezel{background:#020304;padding:1.3cqw 1.3cqw 1.8cqw;border-radius:1.2cqw;border:1px solid rgba(255,255,255,.08)}
+.tv-screen{position:relative;aspect-ratio:16/9;overflow:hidden;font-size:2.1cqw;line-height:1.3;color:#fff;background:#000}
+.tv-screen > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tv-panel{position:absolute;left:0;top:0;bottom:0;width:47%;background:rgba(6,10,16,.82);padding:4cqw 3.6cqw;display:flex;flex-direction:column}
+.tv-hotel{color:var(--cyan);font-weight:600}
+.tv-greet{font-size:3.8cqw;font-weight:500;letter-spacing:-.03em;line-height:1.1;margin-top:1.4cqw;overflow-wrap:anywhere}
+.tv-room{color:#C9D4EE;margin-top:1cqw}
+.tv-menu{margin-top:auto;display:flex;flex-direction:column;gap:.6cqw}
+.tv-menu li{padding:1cqw 1.4cqw;background:rgba(255,255,255,.08);border-radius:.6cqw}
+.tv-menu li.sel{background:var(--cyan);color:#061016;font-weight:600}
+.tv-clock{position:absolute;top:3cqw;right:3cqw;padding:1cqw 1.6cqw;text-align:right;background:rgba(6,10,16,.82);border-radius:.8cqw}
+.tv-clock b{display:block;font-size:3.6cqw;font-weight:500;line-height:1}
+.tv-bot{position:absolute;right:3cqw;bottom:3cqw;width:36%;background:#F1F4F6;color:#061016;padding:1.4cqw 1.8cqw;font-size:2cqw;border-radius:.8cqw}
+.tv-bot b{display:block;color:var(--accent-2)}
+.tv-foot{width:22%;height:1.4cqw;margin:0 auto;background:#020304;border-radius:0 0 .6cqw .6cqw}
+.try{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.try label{display:flex;flex-direction:column;gap:8px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.try input{height:52px;border-radius:14px;border:1px solid var(--line-2);background:rgba(255,255,255,.03);color:var(--text);font:500 16px var(--font);padding:0 16px;letter-spacing:0;text-transform:none;transition:border-color .25s ease, background-color .25s ease}
+.try input:hover{border-color:rgba(255,255,255,.3)}
+.try input:focus{outline:none;border-color:var(--cyan);background:rgba(63,212,232,.05)}
+.try-hint{grid-column:1/-1;font-size:14px;color:var(--dim)}
+.feat li{display:grid;grid-template-columns:1fr auto;gap:6px 20px;padding:24px 0;border-top:1px solid var(--line)}
+.feat li:last-child{border-bottom:1px solid var(--line)}
+.feat h3{font-size:22px;font-weight:500;letter-spacing:-.02em;line-height:1.25}
+.feat .v{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);align-self:center;text-align:right}
+.feat p{grid-column:1/-1;color:var(--dim);font-size:16px;max-width:46ch}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(56px,7vw,96px)}
+.step{border-radius:24px;background:var(--card);border:1px solid var(--line);padding:26px 24px 30px;min-height:320px;display:flex;flex-direction:column;transition:border-color .35s ease, transform .5s var(--ease)}
+.step:hover{border-color:rgba(255,255,255,.24);transform:translateY(-4px)}
+.step h3{font-size:26px;font-weight:500;letter-spacing:-.03em;margin-top:auto}
+.step p{color:var(--soft);font-size:16px;margin-top:12px}
+.step .tag{margin-top:18px;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;border:1px solid var(--line-2);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+
+/* diagnostic */
+.dq{margin-top:clamp(56px,7vw,96px);border-radius:30px;background:#0A0F14;border:1px solid var(--line);padding:clamp(24px,4.4vw,64px);position:relative;overflow:hidden}
+.dq::before{content:"";position:absolute;right:-20%;top:-40%;width:70%;height:90%;background:radial-gradient(closest-side, rgba(52,130,165,.18), transparent);pointer-events:none}
+.dq > *{position:relative}
+.dq-top{display:flex;justify-content:space-between;gap:16px}
+.dq-bar{height:3px;background:var(--line);border-radius:3px;margin-top:16px;overflow:hidden}
+.dq-bar span{display:block;height:100%;width:11%;background:var(--cyan);box-shadow:0 0 14px var(--cyan);border-radius:3px;transition:width .6s var(--ease)}
+.dq-q{margin-top:clamp(36px,5vw,64px);min-height:380px}
+.dq-q.swap{animation:qin .55s var(--ease)}
+.dq-q.swap-back{animation:qback .55s var(--ease)}
+@keyframes qin{from{opacity:0;transform:translateX(28px)}}
+@keyframes qback{from{opacity:0;transform:translateX(-28px)}}
+.dq-cat{color:var(--cyan)}
+.dq-prompt{font-size:clamp(28px,3.2vw,46px);font-weight:500;letter-spacing:-.035em;line-height:1.08;margin-top:16px;max-width:24ch}
+.dq-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px;padding:16px 20px;border-radius:18px;border:1px solid var(--line-2);background:rgba(255,255,255,.02);text-align:left;font-size:17px;line-height:1.35;cursor:pointer;transition:border-color .25s ease, background-color .25s ease, transform .2s var(--ease)}
+.opt:hover{border-color:rgba(255,255,255,.36);background:rgba(255,255,255,.04)}
+.opt:active{transform:scale(.985)}
+.opt .ck{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;border:1px solid var(--line-2);flex:none;transition:background-color .25s ease, border-color .25s ease}
+.opt .ck svg{width:12px;height:12px;opacity:0;transform:scale(.5);transition:opacity .2s ease, transform .3s var(--ease)}
+.opt[aria-checked="true"]{border-color:var(--cyan);background:rgba(63,212,232,.07)}
+.opt[aria-checked="true"] .ck{background:var(--cyan);border-color:var(--cyan);color:#061016}
+.opt[aria-checked="true"] .ck svg{opacity:1;transform:none}
+.dq-nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px}
+.pill.back{padding:0 28px 0 10px}
+.pill.back:hover .arr{transform:translateX(-3px)}
+.pill.back.hide{visibility:hidden}
+.pill[disabled]{opacity:.35;pointer-events:none}
+.dq-gate-p{color:var(--soft);margin-top:18px;max-width:56ch}
+.dq-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
+.dq-fields label{display:flex;flex-direction:column;gap:8px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+.dq-fields .full{grid-column:1/-1}
+.dq-fields input{height:54px;border-radius:14px;border:1px solid var(--line-2);background:rgba(255,255,255,.03);color:var(--text);font:500 16px var(--font);padding:0 16px;letter-spacing:0;text-transform:none;transition:border-color .25s ease, background-color .25s ease}
+.dq-fields input:hover{border-color:rgba(255,255,255,.3)}
+.dq-fields input:focus{outline:none;border-color:var(--cyan);background:rgba(63,212,232,.05)}
+.dq-note{margin-top:20px;font-size:14px;color:var(--dim)}
+.dq-gate:not([hidden]),.dq-result:not([hidden]){animation:qin .6s var(--ease)}
+
+.dr-head{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.dr-gauge{position:relative;width:clamp(150px,16vw,200px);aspect-ratio:1}
+.dr-gauge svg{width:100%;height:100%}
+.dr-gauge [data-dr-ring]{transition:stroke-dashoffset 1.4s var(--ease)}
+.dr-score{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text)}
+.dr-score b{font-size:clamp(44px,4.4vw,60px);font-weight:500;letter-spacing:-.05em;line-height:1}
+.dr-score span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);font-weight:600;margin-top:6px}
+.dr-tier{display:inline-flex;align-items:center;height:32px;padding:0 14px;border-radius:999px;border:1px solid currentColor;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+.dr-headline{font-size:clamp(26px,2.8vw,40px);font-weight:500;letter-spacing:-.035em;line-height:1.1;margin-top:16px;max-width:26ch}
+.dr-sub{color:var(--soft);margin-top:14px;max-width:62ch}
+.t-crit{color:#F06A6E}.t-warn{color:#E8B65C}.t-good{color:var(--cyan)}.t-ref{color:#5BD39A}
+.dr-block{margin-top:clamp(56px,7vw,88px)}
+.dr-h{font-size:clamp(24px,2.4vw,34px);font-weight:500;letter-spacing:-.03em;line-height:1.15;margin-top:18px}
+.dr-p{color:var(--dim);margin-top:10px;max-width:62ch}
+.dr-dims{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.dim{border-radius:20px;background:var(--card);border:1px solid var(--line);padding:22px 24px}
+.dim-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dim h5{font-size:18px;font-weight:500;letter-spacing:-.01em;margin:0}
+.dim .st{flex:none;height:26px;display:inline-flex;align-items:center;padding:0 10px;border-radius:999px;border:1px solid currentColor;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.dim p{color:var(--soft);font-size:15px;margin-top:10px}
+.dim p.reco{color:var(--dim)}
+.dim p.reco b{color:var(--text);font-weight:600}
+.dr-actions{margin-top:24px;counter-reset:a}
+.dr-actions li{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:20px 0;border-top:1px solid var(--line)}
+.dr-actions li:last-child{border-bottom:1px solid var(--line)}
+.dr-actions li::before{counter-increment:a;content:counter(a, decimal-leading-zero);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);font-size:13px;font-weight:600;color:var(--cyan)}
+.dr-actions p{padding-top:9px;color:var(--soft)}
+.dr-actions b{color:var(--text);font-weight:600}
+.dr-none{margin-top:20px;color:var(--soft)}
+.dr-gains{grid-template-columns:repeat(3,1fr);margin-top:28px}
+.dr-next{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.dr-next li{border-radius:20px;background:var(--card);border:1px solid var(--line);padding:22px 24px;color:var(--dim);font-size:15px}
+.dr-next b{display:block;color:var(--text);font-weight:500;font-size:18px;margin-bottom:8px}
+.dr-urgency{margin-top:24px}
+.dr-urgency li{position:relative;padding:16px 0 16px 28px;border-top:1px solid var(--line);color:var(--soft)}
+.dr-urgency li::before{content:"";position:absolute;left:4px;top:27px;width:6px;height:6px;border-radius:50%;background:#E8B65C}
+.dr-urgency li b{color:var(--text)}
+.dr-cta{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;margin-top:clamp(56px,7vw,88px);padding:clamp(24px,3vw,40px);border-radius:24px;background:rgba(58,147,181,.1);border:1px solid rgba(58,147,181,.35)}
+.dr-cta .dr-h{margin-top:0}
+.dr-cta-btns{display:flex;gap:10px;flex-wrap:wrap}
+
+/* partners */
+.partners{padding:clamp(72px,9vw,120px) 0 clamp(64px,8vw,104px)}
+.partners-t{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;font-size:clamp(18px,1.6vw,22px);font-weight:500;letter-spacing:-.01em;color:var(--soft);max-width:44ch;margin:0 auto}
+.partners-t .label.lined::after{content:"";width:44px;height:1px;background:var(--line-2)}
+.partner-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px;margin-top:clamp(36px,4vw,56px)}
+.partner{display:grid;place-items:center;min-width:0;aspect-ratio:4/3;border-radius:18px;background:var(--card);border:1px solid var(--line);padding:18px;transition:border-color .35s ease, background-color .35s ease, transform .5s var(--ease)}
+.partner img{max-width:100%;max-height:64px;width:auto;height:auto;object-fit:contain;filter:grayscale(1) invert(1) brightness(1.35) contrast(1.15);mix-blend-mode:screen;opacity:.72;transition:opacity .35s ease, transform .5s var(--ease)}
+.partner img.mono{filter:none;mix-blend-mode:normal}
+.partner img.big{max-height:76px}
+.partner:hover{border-color:rgba(255,255,255,.26);background:var(--card-2);transform:translateY(-3px)}
+.partner:hover img{opacity:1;transform:scale(1.05)}
+.sec-addr{padding-top:clamp(40px,5vw,72px)}
+.sec-addr .addr{margin-top:0}
+
+/* clients */
+.marquee{overflow:hidden;margin-top:clamp(48px,6vw,80px);-webkit-mask-image:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);mask-image:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:marquee 40s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-size:clamp(40px,5.6vw,84px);font-weight:500;letter-spacing:-.05em;white-space:nowrap;line-height:1.1}
+.marquee-track span:nth-child(even){color:var(--grey)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.addr{display:grid;grid-template-columns:1fr 2.6fr;gap:32px;margin-top:clamp(80px,10vw,140px);padding-top:28px;border-top:1px solid var(--line)}
+.addr h3{font-size:clamp(26px,2.6vw,36px);font-weight:500;letter-spacing:-.03em}
+.addr p{margin-top:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:600}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:1fr 2.6fr;gap:32px}
+.qa{border-top:1px solid var(--line)}
+.qa details{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;cursor:pointer;font-size:clamp(19px,1.7vw,23px);font-weight:500;letter-spacing:-.02em;transition:color .25s ease}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:hover{color:var(--soft)}
+.qa .pm{position:relative;width:34px;height:34px;border-radius:50%;border:1px solid var(--line-2);flex:none;transition:transform .4s var(--ease), background-color .25s ease}
+.qa .pm::before,.qa .pm::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+.qa .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa details[open] .pm{transform:rotate(45deg);background:rgba(255,255,255,.06)}
+.qa details p{color:var(--dim);max-width:62ch;padding:0 0 30px;font-size:17px}
+.qa details[open] p{animation:fadein .5s var(--ease)}
+@keyframes fadein{from{opacity:0;transform:translateY(-6px)}}
+
+/* final cta */
+.final{position:relative;overflow:hidden;text-align:center;padding:clamp(130px,16vw,230px) var(--pad);border-top:1px solid var(--line)}
+.final .rings,.final .glow{top:50%}
+.final p{margin:30px auto 0;max-width:520px;color:var(--soft);font-size:18px}
+.final-ctas{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:44px}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:56px 0 150px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot-top h4{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
+.foot-top li{margin-top:6px}
+.foot-top a{color:var(--soft);transition:color .25s ease}
+.foot-top a:hover{color:var(--text)}
+.foot-top p{color:var(--dim);max-width:32ch;margin-top:14px;font-size:15px}
+.credits{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--dim);line-height:1.6}
+.credits a{text-decoration:underline;text-underline-offset:3px}
+
+/* floating dock */
+.dock{position:fixed;left:50%;bottom:16px;z-index:40;width:min(680px, calc(100% - 24px));border-radius:20px;overflow:hidden;background:#05080B;border:1px solid var(--line-2);box-shadow:0 24px 60px rgba(0,0,0,.55);transform:translate(-50%, 140%);transition:transform .7s var(--ease)}
+.dock.show{transform:translate(-50%,0)}
+.dock-top{display:flex;align-items:center;gap:16px;padding:14px 14px 14px 18px}
+.dock-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;width:50px;height:50px;border:1px solid var(--line-2);border-radius:12px;line-height:1;flex:none}
+.dock-badge b{font-size:18px;font-weight:600;letter-spacing:-.03em}
+.dock-badge small{font-size:9px;letter-spacing:.2em;color:var(--dim);margin-top:4px;font-weight:600}
+.dock-txt{flex:1;min-width:0}
+.dock-txt .label{font-size:10px;letter-spacing:.2em}
+.dock-txt strong{display:block;font-weight:500;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dock-tag{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:999px;border:1px solid rgba(63,212,232,.5);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);white-space:nowrap}
+.dock-x{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;background:transparent;color:var(--dim);cursor:pointer;transition:color .2s ease, background-color .2s ease}
+.dock-x:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.dock-cta{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 12px 0 24px;background:var(--accent);font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;transition:background-color .25s ease}
+.dock-cta:hover{background:var(--accent-2)}
+.dock-cta .arr{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.45);transition:transform .35s var(--ease)}
+.dock-cta:hover .arr{transform:rotate(45deg)}
+.dock-cta svg{width:12px;height:12px}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease), transform 1s var(--ease);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;transform:none}
+.js .big.rv{opacity:1;transform:none}
+.js .big .mask > span{transform:translateY(110%);transition:transform 1.1s var(--ease);transition-delay:var(--d,0ms)}
+.js .big.in .mask > span{transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1080px){
+  .nav{display:none}
+  .grid-ch{grid-template-columns:repeat(4,1fr)}
+  .partner-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .facts{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width: 820px){
+  body{font-size:16px}
+  .ticker .hide-s,.ticker b,.ticker b + i{display:none}
+  .dock-top{display:none}
+  .dock{border-radius:16px}
+  .dock-cta{height:54px;font-size:12px;letter-spacing:.18em}
+  .head .pill{padding-left:18px;height:44px;font-size:11px;gap:10px}
+  .head .pill .arr{width:28px;height:28px}
+  .hero{padding-top:120px}
+  .hero-meta{display:none}
+  .rings span:nth-child(1){width:300px;height:300px}
+  .rings span:nth-child(2){width:540px;height:540px}
+  .sec-head,.plat,.faq-grid,.addr,.foot-top{grid-template-columns:1fr}
+  .sec-head{gap:24px}
+  .model{grid-template-columns:1fr}
+  .model-vis,.model-vis-in{min-height:300px}
+  .model-info{grid-template-columns:1fr 1fr}
+  .grid-ch{grid-template-columns:repeat(3,1fr);gap:8px}
+  .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .partner{border-radius:14px;padding:14px}
+  .partner img{max-height:52px}
+  .ch{border-radius:14px;gap:10px;padding:10px}
+  .ch span{font-size:9px;letter-spacing:.12em}
+  .media{height:68svh;border-radius:22px}
+  .media-frame{inset:12px;padding:20px;border-radius:16px}
+  .media-credit{right:28px;top:26px;font-size:10px}
+  .blob-r,.blob-l{width:240px;opacity:.6}
+  .blob-r{right:-120px}
+  .blob-l{left:-120px}
+  .try{grid-template-columns:1fr}
+  .demo{position:static}
+  .dock-tag{display:none}
+  .dq{border-radius:22px}
+  .dq-opts,.dq-fields,.dr-dims,.dr-next,.dr-gains{grid-template-columns:1fr}
+  .dq-q{min-height:0}
+  .opt{min-height:60px;font-size:16px}
+  .dr-head{grid-template-columns:1fr}
+  .dq-nav .pill{flex:1;justify-content:space-between}
+}
+@media (max-width: 520px){
+  .steps,.facts{grid-template-columns:1fr}
+  .step{min-height:0}
+  .step h3{margin-top:40px}
+  .logo small{display:none}
+  .pill{padding-left:20px;font-size:12px;letter-spacing:.14em}
+  .media-frame h2{font-size:24px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important}
+  .js .rv,.js .big .mask > span{opacity:1;transform:none;transition:none}
+  .media img{transition:opacity .01s}
+}
+
+/* ================= Antena1 identity layer ================= */
+:root{
+  --bg:#070B1E;
+  --bg-2:#0A1029;
+  --card:#0E1534;
+  --card-2:#131C42;
+  --line:rgba(143,170,255,.12);
+  --line-2:rgba(143,170,255,.24);
+  --text:#F3F6FF;
+  --soft:#C5CEEB;
+  --dim:#8A95BA;
+  --grey:#F3F6FF;
+  --blue:#2F6FED;
+  --blue-2:#4A84FF;
+  --blue-l:#9DB8FF;
+  --accent:#2F6FED;
+  --accent-2:#4A84FF;
+  --cyan:#3FD4E8;
+  --font:'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --display:'Space Grotesk', 'Manrope', system-ui, sans-serif;
+  --r:14px;
+}
+body::before{
+  background:
+    radial-gradient(900px 600px at 0% 0%, rgba(47,111,237,.22), transparent 70%),
+    radial-gradient(700px 500px at 100% 30%, rgba(63,212,232,.07), transparent 70%),
+    radial-gradient(rgba(157,184,255,.10) 1px, transparent 1.2px) 0 0 / 26px 26px;
+  -webkit-mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.35) 60%,rgba(0,0,0,.15));
+  mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.35) 60%,rgba(0,0,0,.15));
+}
+main,footer{position:relative;z-index:1}
+
+/* type */
+.big{font-family:var(--display);font-weight:600;letter-spacing:-.035em;line-height:1.02}
+.h-hero{font-size:clamp(40px,4.3vw,66px)}
+.h-sec{font-size:clamp(34px,4.4vw,64px)}
+.big .w,.big .g{color:var(--text)}
+.label{gap:10px;font-size:12px;letter-spacing:.14em;color:var(--blue-l);font-weight:700}
+.label::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--cyan);flex:none}
+.label:has(.dot)::before,.facts dt.label::before{content:none}
+.dot{border-radius:2px;box-shadow:none}
+.model-foot .label::before{content:none}
+
+/* buttons: rounded rectangles, sentence case */
+.pill{height:52px;padding:0 22px;gap:10px;border-radius:10px;border:1px solid var(--line-2);background:rgba(255,255,255,.03);font-family:var(--font);font-size:15px;font-weight:700;letter-spacing:0;text-transform:none}
+.pill .arr{width:auto;height:auto;border:0;border-radius:0;background:none}
+.pill .arr svg{width:14px;height:14px}
+.pill:hover{border-color:var(--blue-l);background:rgba(47,111,237,.1)}
+.pill:hover .arr{transform:translateX(4px);background:none;color:inherit;border:0}
+.pill.solid{background:var(--blue);border-color:var(--blue);color:#fff}
+.pill.solid:hover{background:var(--blue-2);border-color:var(--blue-2)}
+.pill.back{padding:0 22px 0 16px}
+.pill.back:hover .arr{transform:translateX(-4px)}
+.pill.light{background:#fff;color:#0B1440;border-color:#fff}
+.pill.light:hover{background:#E6EEFF;border-color:#E6EEFF}
+.pill.ghost-l{border-color:rgba(255,255,255,.5);background:transparent;color:#fff}
+.pill.ghost-l:hover{background:rgba(255,255,255,.12);border-color:#fff}
+
+/* header: a full bar */
+.head{height:auto}
+.head::before{display:none}
+.head-in{max-width:none;background:rgba(7,11,30,.78);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding-top:12px;padding-bottom:12px}
+.logo{font-family:var(--display);font-weight:700;letter-spacing:-.04em;font-size:24px}
+.logo small{font-family:var(--font);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0B1440;background:var(--cyan);padding:3px 7px;border-radius:5px;align-self:center;white-space:nowrap}
+.nav{height:auto;padding:0;border:0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;gap:2px}
+.nav a{font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;border-radius:8px;padding:8px 12px;position:relative}
+.nav a:hover{background:rgba(255,255,255,.05)}
+.nav a.on{background:none;color:var(--cyan)}
+.nav a.on::after{content:"";position:absolute;left:12px;right:12px;bottom:-13px;height:2px;background:var(--cyan)}
+.head .pill{height:44px;background:var(--blue);border-color:var(--blue);-webkit-backdrop-filter:none;backdrop-filter:none}
+.head .pill:hover{background:var(--blue-2)}
+
+/* hero: split layout */
+.hero{min-height:auto;display:block;text-align:left;padding:clamp(56px,7vw,96px) 0 clamp(64px,8vw,110px);overflow:visible}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero-copy .label{margin-bottom:22px}
+.hero p.lead{margin-top:24px;max-width:52ch;font-size:18px;color:var(--soft)}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.hero .pill{margin-top:0}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
+.hero-stats dt{font-family:var(--display);font-size:clamp(28px,2.6vw,38px);font-weight:600;letter-spacing:-.03em;color:var(--cyan);line-height:1}
+.hero-stats dd{margin-top:8px;font-size:14px;color:var(--dim);line-height:1.4}
+.hero-vis{position:relative}
+.media{height:auto;aspect-ratio:4/4.4;border-radius:20px;border:1px solid var(--line-2)}
+.media::after{background:linear-gradient(180deg, transparent 55%, rgba(7,11,30,.88))}
+.media-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:22px 24px}
+.media-cap b{display:block;font-size:15px;font-weight:700}
+.media-credit{position:static;display:block;margin-top:2px;font-size:12px;letter-spacing:.02em;text-transform:none;color:rgba(255,255,255,.7)}
+.ctrl{border-radius:10px;width:40px;height:40px}
+.now{position:absolute;left:-28px;top:32px;z-index:3;width:230px;background:rgba(10,16,41,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line-2);border-radius:14px;padding:14px;box-shadow:0 20px 50px rgba(0,0,0,.45);animation:nowfloat 7s ease-in-out infinite alternate}
+@keyframes nowfloat{to{transform:translateY(-10px)}}
+.now-t{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.now-t i{width:8px;height:8px;border-radius:50%;background:#FF4D5E;animation:live 1.4s ease-in-out infinite}
+@keyframes live{50%{opacity:.25}}
+.now ul{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.now li{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:10px;padding:6px 8px;border-radius:9px;background:rgba(255,255,255,.04);font-size:14px;font-weight:600}
+.now li:first-child{background:rgba(47,111,237,.22)}
+.now img{width:40px;height:28px;object-fit:contain}
+.now img.z{transform:scale(1.5)}
+.now em{font-style:normal;font-size:11px;font-weight:700;color:var(--cyan);border:1px solid rgba(63,212,232,.5);border-radius:5px;padding:1px 5px}
+
+/* sections: alternate grounds instead of hairlines */
+.sec + .sec{border-top:0}
+.sec:nth-of-type(even){background:var(--bg-2)}
+.sec-head .label{margin-bottom:22px}
+.facts div{border-top:2px solid var(--line-2);position:relative}
+.facts div::before{content:"";position:absolute;left:0;top:-2px;width:36px;height:2px;background:var(--cyan)}
+.facts dd{font-family:var(--display);font-weight:500}
+
+/* partners */
+.partners{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(48px,6vw,80px) 0}
+.partners-t{flex-direction:column;font-size:clamp(17px,1.4vw,20px)}
+.partners-t .label.lined::after{content:none}
+.partner{border-radius:12px;aspect-ratio:3/2}
+
+/* shapes */
+.model{border-radius:18px;background:var(--card);border-color:var(--line)}
+.model-vis{padding:0}
+.model-vis img{filter:saturate(.7) brightness(.55)}
+.model-vis-in{border:0;border-radius:0;min-height:460px;align-items:flex-start;justify-content:flex-end;text-align:left;padding:32px}
+.model-vis-in strong{font-family:var(--display);color:var(--cyan);font-size:clamp(80px,9vw,140px);letter-spacing:-.05em}
+.model-vis-in .label{margin-top:10px;color:#fff}
+.model-vis-in .corner{left:auto;right:28px;top:26px;bottom:auto;background:rgba(7,11,30,.7);padding:6px 10px;border-radius:7px}
+.model-body h3{font-family:var(--display);font-weight:600;letter-spacing:-.03em}
+.chip{border-radius:9px;height:40px;letter-spacing:.04em;text-transform:none;font-size:14px;font-weight:700}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.ch{border-radius:12px}
+.ch span{letter-spacing:.06em}
+.ch::before{background:radial-gradient(closest-side, rgba(47,111,237,.25), transparent)}
+.demo{border-radius:18px;background:var(--card)}
+.feat li{border-top:0;border-left:2px solid var(--line-2);padding:18px 0 18px 22px;transition:border-color .3s ease}
+.feat li:last-child{border-bottom:0}
+.feat li:hover{border-left-color:var(--cyan)}
+.feat h3{font-family:var(--display);font-weight:600}
+.step{border-radius:14px;border-top:3px solid var(--blue);background:var(--card)}
+.step h3{font-family:var(--display);font-weight:600}
+.step .tag{border-radius:7px;letter-spacing:.06em}
+.dq{border-radius:20px;background:var(--card)}
+.dq-prompt,.dr-headline,.dr-h,.addr h3,.media-frame h2{font-family:var(--display);font-weight:600;letter-spacing:-.03em}
+.opt{border-radius:12px}
+.opt .ck{border-radius:7px}
+.dq-fields input,.try input{border-radius:10px}
+.dim,.dr-next li{border-radius:12px}
+.dr-cta{border-radius:16px;background:rgba(47,111,237,.14);border-color:rgba(47,111,237,.45)}
+.dr-actions li::before{border-radius:10px}
+.dr-tier,.dim .st{border-radius:7px;letter-spacing:.08em}
+.qa summary{font-family:var(--display);font-weight:500}
+.qa .pm{border-radius:9px}
+.addr{border-top:2px solid var(--line-2)}
+
+/* final call: brand-blue panel */
+.final{text-align:left;padding:clamp(40px,5vw,72px) 0 clamp(80px,9vw,120px);border-top:0}
+.final-card{display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:40px;align-items:end;border-radius:24px;padding:clamp(32px,5vw,72px);background:var(--blue) radial-gradient(rgba(255,255,255,.16) 1px, transparent 1.3px) 0 0 / 22px 22px;position:relative;overflow:hidden}
+.final-card::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:var(--cyan);opacity:.22;filter:blur(60px);pointer-events:none}
+.final-card > *{position:relative;z-index:1}
+.final-card .label{color:#fff}
+.final-card .dot{background:#fff}
+.final-card h2{margin-top:18px;max-width:16ch;color:#fff}
+.final-card p{margin:18px 0 0;max-width:46ch;color:rgba(255,255,255,.88);font-size:18px}
+.final-ctas{flex-direction:column;align-items:stretch;justify-content:flex-start;margin-top:0;min-width:250px}
+.final-tel{text-align:center;margin-top:6px;font-weight:700;color:#fff;opacity:.9}
+.final-tel:hover{opacity:1;text-decoration:underline}
+
+/* footer */
+.foot{background:#050816}
+.foot-top h4{letter-spacing:.12em;color:var(--blue-l)}
+
+/* corner contact button */
+.dock{left:auto;right:20px;bottom:20px;width:auto;display:flex;align-items:center;gap:6px;border:0;border-radius:0;background:none;box-shadow:none;overflow:visible;transform:translateY(160%);opacity:0;transition:transform .6s var(--ease), opacity .4s ease}
+.dock.show{transform:none;opacity:1}
+.fab{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 20px 0 16px;border-radius:14px;background:var(--blue);color:#fff;font-weight:700;font-size:15px;box-shadow:0 14px 40px rgba(47,111,237,.45);transition:background-color .25s ease, transform .2s var(--ease)}
+.fab:hover{background:var(--blue-2)}
+.fab:active{transform:scale(.97)}
+.fab svg{width:22px;height:22px}
+.dock-x{width:28px;height:28px;border-radius:8px;background:rgba(10,16,41,.9);border:1px solid var(--line-2);color:var(--soft)}
+
+@media (max-width: 1080px){
+  .nav{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-vis{max-width:640px}
+  .now{left:16px}
+}
+@media (max-width: 820px){
+  .head .pill{height:42px;padding:0 16px;font-size:14px}
+  .hero{padding-top:40px}
+  .hero-stats{gap:12px}
+  .hero-stats dd{font-size:13px}
+  .media{aspect-ratio:4/3.6;border-radius:16px}
+  .now{width:190px;top:14px;left:12px;padding:10px}
+  .now li{font-size:13px;grid-template-columns:32px 1fr auto}
+  .now img{width:32px;height:22px}
+  .model-vis-in{min-height:280px;padding:22px}
+  .final-card{grid-template-columns:1fr;border-radius:18px}
+  .final-ctas{min-width:0}
+  .final-ctas .pill{justify-content:center}
+  .dock{right:12px;bottom:12px;left:12px}
+  .fab{flex:1;justify-content:center}
+}
+@media (max-width: 520px){
+  .logo small{display:inline-block;font-size:11px}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+  .hero-ctas .pill{flex:1;justify-content:center}
+}
+
+/* ================= polish ================= */
+.sec{padding:clamp(80px,9vw,128px) 0}
+.sec-head{gap:clamp(24px,5vw,80px)}
+.sec-head.center{grid-template-columns:1fr;justify-items:center;text-align:center;gap:20px}
+.sec-head.center p{padding-bottom:0;margin:0 auto;max-width:58ch}
+.sec-head.center .label{margin-bottom:18px}
+.sec-head.center + .filters{justify-content:center}
+#canais .ch-meta{max-width:none}
+
+/* comparison */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(48px,6vw,80px)}
+.cmp{border-radius:18px;padding:clamp(24px,3vw,40px);border:1px solid var(--line)}
+.cmp-old{background:rgba(255,255,255,.02)}
+.cmp-new{background:linear-gradient(160deg, rgba(47,111,237,.22), rgba(47,111,237,.06) 60%);border-color:rgba(74,132,255,.45);position:relative;overflow:hidden}
+.cmp-new::after{content:"";position:absolute;right:-80px;top:-80px;width:240px;height:240px;border-radius:50%;background:var(--cyan);opacity:.12;filter:blur(50px);pointer-events:none}
+.cmp-tag{display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:8px;font-size:13px;font-weight:700;background:rgba(255,255,255,.06);color:var(--dim)}
+.cmp-new .cmp-tag{background:var(--blue);color:#fff}
+.cmp ul{margin-top:26px;display:flex;flex-direction:column;gap:22px;position:relative;z-index:1}
+.cmp li{display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start}
+.cmp .ic{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;font-style:normal}
+.cmp .ic svg{width:14px;height:14px}
+.cmp-old .ic{background:rgba(255,77,94,.12);color:#FF7A86}
+.cmp-new .ic{background:rgba(63,212,232,.16);color:var(--cyan)}
+.cmp b{display:block;font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em;line-height:1.3}
+.cmp p{margin-top:4px;font-size:15.5px;color:var(--dim);line-height:1.55}
+.cmp-old b{color:var(--soft)}
+.cmp-new p{color:var(--soft)}
+
+/* timeline */
+.timeline{position:relative;gap:24px;margin-top:clamp(56px,7vw,88px)}
+.timeline::before{content:"";position:absolute;left:24px;right:24px;top:24px;height:2px;background:linear-gradient(90deg, var(--blue), var(--cyan));opacity:.6}
+.timeline .step{min-height:0;background:none;border:0;border-radius:0;padding:0;transform:none}
+.timeline .step:hover{transform:none}
+.timeline .node{position:relative;display:grid;place-items:center;width:50px;height:50px;border-radius:14px;background:var(--bg-2);border:2px solid var(--blue);font-family:var(--display);font-size:20px;font-weight:700;color:#fff;transition:background-color .3s ease, transform .4s var(--ease)}
+.timeline .step:hover .node{background:var(--blue);transform:translateY(-3px)}
+.timeline .tag{margin-top:24px}
+.timeline .step h3{margin-top:14px;font-size:24px}
+.timeline .step p{margin-top:8px;color:var(--dim);max-width:30ch}
+
+/* final panel address */
+.final-addr{display:block;text-align:center;font-size:13px;color:rgba(255,255,255,.75);margin-top:2px}
+
+/* FAQ icon: plus turns into minus, no rotated square */
+.qa details[open] .pm{transform:none;background:var(--blue);border-color:var(--blue)}
+.qa .pm::before,.qa .pm::after{transition:transform .35s var(--ease)}
+.qa details[open] .pm::after{transform:translate(-50%,-50%) rotate(90deg) scaleX(0)}
+.qa details{transition:background-color .3s ease}
+.qa summary{padding:24px 4px}
+
+/* header & hero refinements */
+.hero-copy .h-hero{max-width:12ch}
+.hero-stats div{padding-left:14px;border-left:2px solid var(--line-2)}
+.hero-stats div:first-child{border-left-color:var(--cyan)}
+
+/* partners: tighter */
+.partners{padding:clamp(40px,5vw,64px) 0}
+
+@media (max-width: 1080px){
+  .timeline{grid-template-columns:repeat(2,1fr);row-gap:40px}
+  .timeline::before{display:none}
+}
+@media (max-width: 820px){
+  .compare{grid-template-columns:1fr}
+  .sec-head.center{text-align:left;justify-items:start}
+  .sec-head.center p{margin:0}
+  .sec-head.center + .filters{justify-content:flex-start}
+}
+@media (max-width: 520px){
+  .timeline{grid-template-columns:1fr;row-gap:32px}
+  .timeline .step{display:grid;grid-template-columns:50px 1fr;column-gap:16px}
+  .timeline .step > :not(.node){grid-column:2}
+  .timeline .node{grid-row:1 / span 4}
+  .timeline .tag{margin-top:0;justify-self:start}
+  .head-in{gap:12px}
+  .head .pill{padding:0 14px;font-size:13px}
+  .head .pill .arr{display:none}
+}
+
+/* ================= channel carousel ================= */
+.ch-carousel{display:flex;flex-direction:column;gap:12px;margin-top:clamp(44px,5vw,72px);overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent)}
+.ch-row{display:flex;width:max-content;animation:chscroll var(--dur,70s) linear infinite}
+.ch-row.rev{animation-direction:reverse}
+.ch-carousel:hover .ch-row,.ch-carousel.paused .ch-row,.ch-carousel:focus-within .ch-row{animation-play-state:paused}
+@keyframes chscroll{to{transform:translateX(-50%)}}
+.ch-track{display:flex;gap:9px;padding-right:9px}
+.ch-carousel .ch{flex:none;width:130px;height:99px;aspect-ratio:auto;gap:9px;padding:11px}
+.ch-carousel .ch img{width:58px;height:58px;max-width:none;max-height:none;margin:0;aspect-ratio:1;object-fit:contain}
+.ch-carousel .ch span{font-size:11px;letter-spacing:.06em;white-space:nowrap}
+.ch-txt b{display:grid;place-items:center;height:58px;font-family:var(--display);font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.05;text-align:center;color:#fff;position:relative}
+.ch-txt span{display:none}
+.ch-carousel .ch-txt b{height:auto;padding:0 6px}
+.ch-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px}
+.ch-foot-r{display:flex;align-items:center;gap:14px}
+.ch-foot .ch-note{margin:0;font-size:13px;letter-spacing:0;text-transform:none;color:var(--dim);font-weight:500}
+
+/* partners: one fixed logo box for every brand */
+.partner{aspect-ratio:auto;height:120px;padding:0}
+.partner img,.partner img.mono,.partner img.big{width:132px;height:64px;max-width:72%;max-height:none;object-fit:contain}
+
+@media (max-width: 820px){
+  .ch-carousel{gap:8px}
+  .ch-track{gap:7px;padding-right:7px}
+  .ch-carousel .ch{width:99px;height:80px;border-radius:10px;gap:7px}
+  .ch-carousel .ch img{width:46px;height:46px}
+  .ch-txt b{height:46px;font-size:16px}
+  .ch-carousel .ch span{font-size:9.5px}
+  .partner{height:96px}
+  .partner img,.partner img.mono,.partner img.big{width:112px;height:52px}
+}
+@media (prefers-reduced-motion: reduce){
+  .ch-carousel{overflow-x:auto}
+  .ch-row{animation:none}
+  .ch-track[aria-hidden]{display:none}
+}
+
+/* carousel: logos only */
+.ch-carousel .ch{height:86px}
+.ch-carousel .ch img{width:50px;height:50px}
+@media (max-width: 820px){.ch-carousel .ch{height:68px}.ch-carousel .ch img{width:39px;height:39px}}
+</style>
+</head>
+<body>
+
+<!-- chrome blob, drawn once -->
+<header class="head">
+  <div class="head-in">
+    <a class="logo" href="#topo" aria-label="Antena1 Hotel TV, início">Antena1<small>Hotel TV</small></a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#modelos">Modelos</a>
+      <a href="#canais">Canais</a>
+      <a href="#plataforma">Plataforma</a>
+      <a href="#implantacao">Implantação</a>
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="pill" href="#contato">Pedir proposta <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span></a>
+  </div>
+</header>
+
+<main id="topo">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="label rv">TV para hotéis · Fortaleza/CE</span>
+        <h1 id="h1" class="big h-hero rv">
+          <span class="mask"><span class="w">TV por assinatura</span></span>
+          <span class="mask" style="--d:90ms"><span class="w">feita para hotéis</span></span>
+        </h1>
+        <p class="lead rv" style="--d:200ms">Canais ao vivo, streaming e serviços na tela do quarto, com projeto, instalação e suporte da Antena1. A mesma engenharia que atende Beach Park, Gran Marquise e Vila Galé.</p>
+        <div class="hero-ctas rv" style="--d:280ms">
+          <a class="pill solid" href="#contato">Pedir proposta <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span></a>
+          <a class="pill" href="#canais">Ver a grade de canais</a>
+        </div>
+        <dl class="hero-stats rv" style="--d:360ms">
+          <div><dt>27+</dt><dd>anos de engenharia em telecom</dd></div>
+          <div><dt>2</dt><dd>modelos: IP → RF e IP → IP</dd></div>
+          <div><dt>0</dt><dd>obra para instalar</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-vis rv" style="--d:160ms">
+        <figure class="media" data-media>
+          <img class="on" src="assets/praia-de-iracema-24.jpg" width="1920" height="1440" alt="Praia de Iracema, em Fortaleza: mar, faixa de areia e a linha de prédios da orla">
+          <img src="assets/praia-de-iracema-fortaleza-ce-3.jpg" width="1920" height="1277" alt="" loading="lazy">
+          <img src="assets/fortaleza-ceara-brazil-iracema-beach-panoramio.jpg" width="1920" height="1440" alt="" loading="lazy">
+          <figcaption class="media-cap">
+            <span><b>Praia de Iracema · Fortaleza/CE</b><span class="media-credit" data-credit>Foto: Joelkaula · CC BY-SA 4.0</span></span>
+            <button class="ctrl" type="button" aria-label="Pausar as fotos" data-pause><svg viewBox="0 0 14 14" fill="currentColor"></svg></button>
+          </figcaption>
+        </figure>
+        <div class="now" aria-hidden="true">
+          <span class="now-t"><i></i>No ar agora</span>
+          <ul>
+            <li><img src="assets/canais/globosp.png" alt=""><span>Globo</span><em>HD</em></li>
+            <li><img src="assets/canais/sportv.png" alt="" class="z"><span>SporTV</span><em>HD</em></li>
+            <li><img src="assets/canais/hbo.png" alt=""><span>HBO</span><em>HD</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="partners" aria-labelledby="h-parc">
+    <div class="wrap">
+      <p id="h-parc" class="partners-t rv"><span class="label">Parceiros</span>Redes hoteleiras que já operam com infraestrutura GPON instalada pela Antena1.</p>
+      <ul class="partner-grid">
+        <li class="partner rv" style="--d:0ms"><img src="assets/parceiros/vila-gale-trim.png" alt="Vila Galé Hotéis" loading="lazy"></li>
+        <li class="partner rv" style="--d:50ms"><img src="assets/parceiros/beach-park-trim.png" alt="Beach Park" loading="lazy"></li>
+        <li class="partner rv" style="--d:100ms"><img src="assets/parceiros/gran-marquise-trim.png" alt="Hotel Gran Marquise" loading="lazy"></li>
+        <li class="partner rv" style="--d:150ms"><img src="assets/parceiros/holiday-inn-trim.png" alt="Holiday Inn" loading="lazy"></li>
+        <li class="partner rv" style="--d:200ms"><img src="assets/parceiros/magna-praia-trim.png" alt="Magna Praia Hotel" loading="lazy"></li>
+        <li class="partner rv" style="--d:250ms"><img class="mono" src="assets/parceiros/praiamar-mono.png" alt="Praiamar Natal Hotel &amp; Convention" loading="lazy"></li>
+        <li class="partner rv" style="--d:300ms"><img class="mono big" src="assets/parceiros/praia-centro-mono.png" alt="Praia Centro Hotel" loading="lazy"></li>
+        <li class="partner rv" style="--d:350ms"><img class="mono" src="assets/parceiros/ocean-palace-mono.png" alt="Ocean Palace Beach Resort &amp; Bungalows" loading="lazy"></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="sec" aria-labelledby="h-why">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label rv">Por que modernizar</span>
+          <h2 id="h-why" class="big h-sec rv">
+            <span class="mask"><span class="w">O hóspede liga</span></span>
+            <span class="mask" style="--d:90ms"><span class="w">a TV primeiro</span></span>
+            <span class="mask" style="--d:180ms"><span class="w">e julga o hotel</span></span>
+          </h2>
+        </div>
+        <p class="rv" style="--d:200ms">Antes de abrir a mala, ele procura o canal de notícias, o jogo ou o streaming. Uma TV que falha vira reclamação na recepção e nota baixa no Booking. Uma TV que funciona vira canal de serviço do hotel.</p>
+      </div>
+      <div class="compare">
+        <div class="cmp cmp-old rv">
+          <span class="cmp-tag">Hoje, em muitos hotéis</span>
+          <ul>
+            <li><i class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg></i><div><b>Antena coletiva e coaxial antigos</b><p>Sinal instável, canais fora do ar e peças de reposição cada vez mais caras.</p></div></li>
+            <li><i class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg></i><div><b>Grade engessada</b><p>Os mesmos canais para todo hóspede, sem os jogos, as notícias e os filmes que ele procura.</p></div></li>
+            <li><i class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg></i><div><b>TV só para assistir</b><p>Nenhuma mensagem do hotel, nenhum serviço, nenhuma receita na tela do quarto.</p></div></li>
+            <li><i class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg></i><div><b>Vários fornecedores</b><p>A empresa de TV culpa a de internet, e a sua equipe perde tempo mediando o conflito.</p></div></li>
+          </ul>
+        </div>
+        <div class="cmp cmp-new rv" style="--d:120ms">
+          <span class="cmp-tag">Com a Antena1</span>
+          <ul>
+            <li><i class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.5 8.5l3 3 6-7"/></svg></i><div><b>Sinal digital em HD</b><p>Entregue por IP, pelo coaxial que já existe ou pela rede própria do hotel.</p></div></li>
+            <li><i class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.5 8.5l3 3 6-7"/></svg></i><div><b>Grade sob medida</b><p>Canais escolhidos para o perfil dos hóspedes da sua operação.</p></div></li>
+            <li><i class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.5 8.5l3 3 6-7"/></svg></i><div><b>TV que trabalha pelo hotel</b><p>Boas-vindas com o nome, room service e pesquisa de satisfação na tela.</p></div></li>
+            <li><i class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.5 8.5l3 3 6-7"/></svg></i><div><b>Um responsável, com SLA</b><p>Projeto, implantação e suporte técnico centralizados na Antena1.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELS -->
+  <section class="sec" id="modelos" aria-labelledby="h-modelos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label rv">Modelos de entrega</span>
+          <h2 id="h-modelos" class="big h-sec rv">
+            <span class="mask"><span class="w">Dois caminhos</span></span>
+            <span class="mask" style="--d:90ms"><span class="w">para a TV nova</span></span>
+          </h2>
+        </div>
+        <p class="rv" style="--d:200ms">Escolha o que combina com a infraestrutura que o hotel já tem. Nos dois, a grade de canais é montada sob medida para a operação.</p>
+      </div>
+
+      <div class="models">
+        <article class="model rv">
+          <div class="model-vis">
+            <img src="assets/praia-de-iracema-fortaleza-ce-3.jpg" width="1920" height="1277" alt="" loading="lazy">
+            <div class="model-vis-in">
+              <strong>RF</strong>
+              <span class="label">IP → RF</span>
+              <small>TVs atuais · coaxial existente</small>
+              <span class="corner">Modelo 01</span>
+            </div>
+          </div>
+          <div class="model-body">
+            <span class="label">Modernizar sem trocar TVs</span>
+            <h3>Canais novos nas televisões que o hotel já tem</h3>
+            <p>O sinal chega por IP e é distribuído pelo cabo coaxial (RF) dos quartos. A central de sinal fica nova; o parque de televisores continua o mesmo.</p>
+            <dl class="model-info">
+              <div><dt>Televisores</dt><dd>Os atuais</dd></div>
+              <div><dt>Cabeamento</dt><dd>Coaxial existente</dd></div>
+              <div><dt>Ideal para</dt><dd>Modernizar com menor investimento</dd></div>
+            </dl>
+            <div class="model-foot">
+              <a class="pill" href="#contato">Quero este modelo <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span></a>
+              <span class="label"><a href="#canais">→ Ver canais</a></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="model rv">
+          <div class="model-vis">
+            <img src="assets/cumbuco-beach-fortaleza-ceara-brasil-panoramio.jpg" width="1920" height="1440" alt="" loading="lazy">
+            <div class="model-vis-in">
+              <strong>IP</strong>
+              <span class="label">IP → IP</span>
+              <small>Rede própria · TV interativa</small>
+              <span class="corner">Modelo 02</span>
+            </div>
+          </div>
+          <div class="model-body">
+            <span class="label">TV, streaming e serviços</span>
+            <h3>A TV do quarto vira a central do hóspede</h3>
+            <p>Entrega pela rede própria do hotel, integrada à plataforma de hospitalidade: TV ao vivo, streaming e serviços interativos na mesma tela, com o nome do hóspede desde o check-in.</p>
+            <dl class="model-info">
+              <div><dt>Televisores</dt><dd>Smart TV ou TV comum com módulo</dd></div>
+              <div><dt>Rede</dt><dd>IP, integrada ao hotel</dd></div>
+              <div><dt>Ideal para</dt><dd>Experiência e receita na tela</dd></div>
+            </dl>
+            <div class="model-foot">
+              <a class="pill" href="#contato">Quero este modelo <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span></a>
+              <span class="label"><a href="#plataforma">→ Ver plataforma</a></span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="label more rv">Também instalamos e mantemos TV coletiva tradicional, de qualquer marca ou modelo.</p>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section class="sec" id="canais" aria-labelledby="h-canais">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div>
+          <span class="label rv">Grade de canais</span>
+          <h2 id="h-canais" class="big h-sec rv">
+            <span class="mask"><span class="w">Os canais que</span></span>
+            <span class="mask" style="--d:90ms"><span class="w">o hóspede procura</span></span>
+          </h2>
+        </div>
+        <p class="rv" style="--d:200ms">Abertos, filmes, séries, esportes, notícias, documentários, infantis, religiosos e variedades. A grade é montada sob medida para cada hotel, de acordo com o perfil dos hóspedes.</p>
+      </div>
+
+    </div>
+    <div class="ch-carousel rv" data-carousel aria-label="Grade de canais: 81 canais">
+        <div class="ch-row" style="--dur:70s">
+          <ul class="ch-track">
+            <li class="ch"><img src="assets/canais/globosp.png" alt="Globo" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/band.png" alt="Band" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tvbrasil.png" alt="TV Brasil" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/tvsenado.png" alt="TV Senado" loading="lazy" width="500" height="500" style="--s:1.1"></li>
+            <li class="ch"><img src="assets/canais/telecinepremium.png" alt="Telecine Premium" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/telecinefun.png" alt="Telecine Fun" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hbo.png" alt="HBO" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hbofamily.png" alt="HBO Family" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/canalbrasil.png" alt="Canal Brasil" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/cinemax.png" alt="Cinemax" loading="lazy" width="500" height="500" style="--s:1.4"></li>
+            <li class="ch"><img src="assets/canais/axn.png" alt="AXN" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/lifetime.png" alt="Lifetime" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/usa.png" alt="USA" loading="lazy" width="500" height="500" style="--s:1.1"></li>
+            <li class="ch"><img src="assets/canais/sportv3.png" alt="SporTV 3" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/espn2.png" alt="ESPN 2" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/espn5.png" alt="ESPN 5" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/globonews.png" alt="GloboNews" loading="lazy" width="500" height="500" style="--s:1.4"></li>
+            <li class="ch"><img src="assets/canais/history.png" alt="History" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/discoveryworld.png" alt="Discovery World" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/animalplanet.png" alt="Animal Planet" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/cartoonnetwork.png" alt="Cartoon Network" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/gloobinho.png" alt="Gloobinho" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tvaparecida.png" alt="TV Aparecida" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/novotempo.png" alt="Novo Tempo" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/multishow.png" alt="Multishow" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/discoveryhh.png" alt="Home &amp; Health" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/modoviagem.png" alt="Modo Viagem" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/agromais.png" alt="Agro+" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+          </ul>
+          <ul class="ch-track" aria-hidden="true">
+            <li class="ch"><img src="assets/canais/globosp.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/band.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tvbrasil.png" alt="" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/tvsenado.png" alt="" loading="lazy" width="500" height="500" style="--s:1.1"></li>
+            <li class="ch"><img src="assets/canais/telecinepremium.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/telecinefun.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hbo.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hbofamily.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/canalbrasil.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/cinemax.png" alt="" loading="lazy" width="500" height="500" style="--s:1.4"></li>
+            <li class="ch"><img src="assets/canais/axn.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/lifetime.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/usa.png" alt="" loading="lazy" width="500" height="500" style="--s:1.1"></li>
+            <li class="ch"><img src="assets/canais/sportv3.png" alt="" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/espn2.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/espn5.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/globonews.png" alt="" loading="lazy" width="500" height="500" style="--s:1.4"></li>
+            <li class="ch"><img src="assets/canais/history.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/discoveryworld.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/animalplanet.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/cartoonnetwork.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/gloobinho.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tvaparecida.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/novotempo.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/multishow.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/discoveryhh.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/modoviagem.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/agromais.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+          </ul>
+        </div>
+        <div class="ch-row rev" style="--dur:82s">
+          <ul class="ch-track">
+            <li class="ch"><img src="assets/canais/record.png" alt="RecordTV" loading="lazy" width="500" height="500" style="--s:1.7"></li>
+            <li class="ch"><img src="assets/canais/cultura.png" alt="TV Cultura" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tvgazeta.png" alt="TV Gazeta" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/tvjustica.png" alt="TV Justiça" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/telecineaction.png" alt="Telecine Action" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/telecinetouch.png" alt="Telecine Touch" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hbo2.png" alt="HBO 2" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hbosignature.png" alt="HBO Signature" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tcm.png" alt="TCM" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tnt.png" alt="TNT" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/ae.png" alt="A&amp;E" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/warnerchannel.png" alt="Warner TV" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/sportv.png" alt="SporTV" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/bandsports.png" alt="BandSports" loading="lazy" width="500" height="500" style="--s:1.3"></li>
+            <li class="ch"><img src="assets/canais/espn3.png" alt="ESPN 3" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/espn6.png" alt="ESPN 6" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/cnnbrasil.png" alt="CNN Brasil" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/history2.png" alt="History 2" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/discoveryturbo.png" alt="Discovery Turbo" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/futura.png" alt="Futura" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/cartoonito.png" alt="Cartoonito" loading="lazy" width="500" height="500" style="--s:1.6"></li>
+            <li class="ch"><img src="assets/canais/tvratimbum.png" alt="TV Rá-Tim-Bum" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/cancaonova.png" alt="Canção Nova" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/boavontade.png" alt="Boa Vontade TV" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/gnt.png" alt="GNT" loading="lazy" width="500" height="500" style="--s:1.1"></li>
+            <li class="ch"><img src="assets/canais/off.png" alt="OFF" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/canalrural.png" alt="Canal Rural" loading="lazy" width="500" height="500"></li>
+          </ul>
+          <ul class="ch-track" aria-hidden="true">
+            <li class="ch"><img src="assets/canais/record.png" alt="" loading="lazy" width="500" height="500" style="--s:1.7"></li>
+            <li class="ch"><img src="assets/canais/cultura.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tvgazeta.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/tvjustica.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/telecineaction.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/telecinetouch.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hbo2.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hbosignature.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tcm.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tnt.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/ae.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/warnerchannel.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/sportv.png" alt="" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/bandsports.png" alt="" loading="lazy" width="500" height="500" style="--s:1.3"></li>
+            <li class="ch"><img src="assets/canais/espn3.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/espn6.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/cnnbrasil.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/history2.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/discoveryturbo.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/futura.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/cartoonito.png" alt="" loading="lazy" width="500" height="500" style="--s:1.6"></li>
+            <li class="ch"><img src="assets/canais/tvratimbum.png" alt="" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/cancaonova.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/boavontade.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/gnt.png" alt="" loading="lazy" width="500" height="500" style="--s:1.1"></li>
+            <li class="ch"><img src="assets/canais/off.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/canalrural.png" alt="" loading="lazy" width="500" height="500"></li>
+          </ul>
+        </div>
+        <div class="ch-row" style="--dur:76s">
+          <ul class="ch-track">
+            <li class="ch"><img src="assets/canais/sbt.png" alt="SBT" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/redetv.png" alt="RedeTV!" loading="lazy" width="500" height="500" style="--s:1.4"></li>
+            <li class="ch"><img src="assets/canais/tvcamara.png" alt="TV Câmara" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/telecinepipoca.png" alt="Telecine Pipoca" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/telecinecult.png" alt="Telecine Cult" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hboplus.png" alt="HBO Plus" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hboxtreme.png" alt="HBO Xtreme" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/space.png" alt="Space" loading="lazy" width="500" height="500" style="--s:1.4"></li>
+            <li class="ch"><img src="assets/canais/amc.png" alt="AMC" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tntseries.png" alt="TNT Séries" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/universaltv.png" alt="Universal TV" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/sportv2.png" alt="SporTV 2" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/espn.png" alt="ESPN" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/espn4.png" alt="ESPN 4" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/xsports.png" alt="XSports" loading="lazy" width="500" height="500" style="--s:1.4"></li>
+            <li class="ch"><img src="assets/canais/bandnews.png" alt="BandNews" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/discoveryscience.png" alt="Discovery Science" loading="lazy" width="500" height="500" style="--s:1.3"></li>
+            <li class="ch"><img src="assets/canais/id.png" alt="ID Discovery" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/discoverykids.png" alt="Discovery Kids" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/gloob.png" alt="Gloob" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/adultswim.png" alt="Adult Swim" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/redevida.png" alt="Rede Vida" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/redegospel.png" alt="Rede Gospel" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tlc.png" alt="TLC" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/woohoo.png" alt="Woohoo" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tntnovelas.png" alt="TNT Novelas" loading="lazy" width="500" height="500"></li>
+          </ul>
+          <ul class="ch-track" aria-hidden="true">
+            <li class="ch"><img src="assets/canais/sbt.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/redetv.png" alt="" loading="lazy" width="500" height="500" style="--s:1.4"></li>
+            <li class="ch"><img src="assets/canais/tvcamara.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/telecinepipoca.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/telecinecult.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hboplus.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/hboxtreme.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/space.png" alt="" loading="lazy" width="500" height="500" style="--s:1.4"></li>
+            <li class="ch"><img src="assets/canais/amc.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tntseries.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/universaltv.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/sportv2.png" alt="" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/espn.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/espn4.png" alt="" loading="lazy" width="500" height="500" style="--s:1.2"></li>
+            <li class="ch"><img src="assets/canais/xsports.png" alt="" loading="lazy" width="500" height="500" style="--s:1.4"></li>
+            <li class="ch"><img src="assets/canais/bandnews.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/discoveryscience.png" alt="" loading="lazy" width="500" height="500" style="--s:1.3"></li>
+            <li class="ch"><img src="assets/canais/id.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/discoverykids.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/gloob.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/adultswim.png" alt="" loading="lazy" width="500" height="500" style="--s:1.5"></li>
+            <li class="ch"><img src="assets/canais/redevida.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/redegospel.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tlc.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/woohoo.png" alt="" loading="lazy" width="500" height="500"></li>
+            <li class="ch"><img src="assets/canais/tntnovelas.png" alt="" loading="lazy" width="500" height="500"></li>
+          </ul>
+        </div>
+    </div>
+    <div class="wrap">
+      <div class="ch-foot">
+        <span class="label">81 canais em HD</span>
+        <span class="ch-foot-r">
+          <span class="ch-note">*Grade sujeita a alterações pela operadora.</span>
+          <button class="ctrl" type="button" data-carousel-toggle aria-label="Pausar o carrossel"><svg viewBox="0 0 14 14" fill="currentColor"><rect x="3" y="2" width="2.6" height="10" rx=".6"/><rect x="8.4" y="2" width="2.6" height="10" rx=".6"/></svg></button>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM -->
+  <section class="sec" id="plataforma" aria-labelledby="h-plat">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label rv">Plataforma interativa</span>
+          <h2 id="h-plat" class="big h-sec rv">
+            <span class="mask"><span class="w">O hotel inteiro</span></span>
+            <span class="mask" style="--d:90ms"><span class="w">na tela do quarto</span></span>
+          </h2>
+        </div>
+        <p class="rv" style="--d:200ms">Mais do que televisão: recepção, cardápio e guia do hotel, com o Antone, o assistente digital, sempre à disposição do hóspede.</p>
+      </div>
+
+      <div class="plat">
+        <div class="demo rv">
+          <div class="tv" data-ui>
+            <div class="tv-bezel">
+              <div class="tv-screen">
+                <img src="assets/praia-de-iracema-24.jpg" width="1920" height="1440" alt="Exemplo de tela de boas-vindas na TV do quarto, com foto da Praia de Iracema ao fundo" loading="lazy">
+                <div class="tv-panel">
+                  <span class="tv-hotel" data-live="hotel">Hotel Atlântico</span>
+                  <span class="tv-greet">Boas-vindas, <span data-live="guest">Sra. Almeida</span></span>
+                  <span class="tv-room">Quarto 1204 · check-out sexta, 12h</span>
+                  <ul class="tv-menu">
+                    <li class="sel">TV ao vivo</li>
+                    <li>Room service</li>
+                    <li>Seus apps de streaming</li>
+                    <li>Fale com o Antone</li>
+                  </ul>
+                </div>
+                <div class="tv-clock"><b data-clock>21:00</b>29° em Fortaleza</div>
+                <div class="tv-bot"><b>Antone</b>Olá! Posso reservar um jantar ou um passeio?</div>
+              </div>
+            </div>
+            <div class="tv-foot"></div>
+          </div>
+          <form class="try" onsubmit="return false">
+            <label>Nome do hotel<input type="text" maxlength="28" placeholder="Hotel Atlântico" autocomplete="organization" data-input="hotel"></label>
+            <label>Hóspede<input type="text" maxlength="24" placeholder="Sra. Almeida" autocomplete="off" data-input="guest"></label>
+            <p class="try-hint">Experimente: escreva o nome do seu hotel e veja a tela de boas-vindas.</p>
+          </form>
+        </div>
+
+        <ul class="feat">
+          <li class="rv"><h3>Boas-vindas com o nome</h3><span class="v">No check-in</span><p>Mensagem para o hóspede ou paciente, direto na tela do quarto.</p></li>
+          <li class="rv" style="--d:60ms"><h3>Room service e governança</h3><span class="v">Controle ou QR</span><p>Cardápio, pedidos de arrumação e agendamentos sem ligar para a recepção.</p></li>
+          <li class="rv" style="--d:120ms"><h3>Streaming do hóspede</h3><span class="v">Apps próprios</span><p>Ele entra com as próprias contas; tudo é apagado automaticamente no check-out.</p></li>
+          <li class="rv" style="--d:180ms"><h3>Pesquisa de satisfação</h3><span class="v">Em tempo real</span><p>NPS coletado durante a estadia, antes da avaliação no Booking e no TripAdvisor.</p></li>
+          <li class="rv" style="--d:240ms"><h3>Integração com o PMS</h3><span class="v">Principais sistemas</span><p>Mensagens automáticas e pedidos lançados direto na conta do quarto.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPLOYMENT -->
+  <section class="sec" id="implantacao" aria-labelledby="h-impl">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="label rv">Implantação</span>
+          <h2 id="h-impl" class="big h-sec rv">
+            <span class="mask"><span class="w">Sem obra</span></span>
+            <span class="mask" style="--d:90ms"><span class="w">e sem fechar quartos</span></span>
+          </h2>
+        </div>
+        <p class="rv" style="--d:200ms">A fibra é fina e maleável e aproveita os dutos que já existem. A troca é feita por andar ou por bloco, com o hotel aberto e as reservas seguindo normalmente.</p>
+      </div>
+      <ol class="steps timeline">
+        <li class="step rv"><span class="node">1</span><span class="tag"><span class="dot"></span>Gratuita</span><h3>Visita técnica</h3><p>Levantamento das TVs, do cabeamento e da rede do hotel.</p></li>
+        <li class="step rv" style="--d:90ms"><span class="node">2</span><span class="tag">Sob medida</span><h3>Projeto</h3><p>Escolha entre IP → RF e IP → IP, grade de canais e integração com o PMS.</p></li>
+        <li class="step rv" style="--d:180ms"><span class="node">3</span><span class="tag">Hotel aberto</span><h3>Instalação</h3><p>Andar por andar, pelos dutos existentes, sem quebrar paredes.</p></li>
+        <li class="step rv" style="--d:270ms"><span class="node">4</span><span class="tag">Com SLA</span><h3>Operação</h3><p>Suporte técnico e manutenção preventiva, com um único responsável.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- DIAGNOSTIC -->
+  <section class="sec" id="diagnostico" aria-labelledby="h-diag">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div>
+          <span class="label rv">Diagnóstico gratuito</span>
+          <h2 id="h-diag" class="big h-sec rv">
+            <span class="mask"><span class="w">Como está</span></span>
+            <span class="mask" style="--d:90ms"><span class="w">a sua operação?</span></span>
+          </h2>
+        </div>
+        <p class="rv" style="--d:200ms">9 perguntas, menos de 2 minutos. Ao final, você recebe o dossiê técnico: índice de eficiência, diagnóstico por dimensão e plano de modernização em ordem de prioridade.</p>
+      </div>
+
+      <div class="dq rv" data-dq>
+        <!-- step 1: questions -->
+        <div class="dq-quiz" data-step="quiz">
+          <div class="dq-top">
+            <span class="label" data-dq-counter>Pergunta 1 de 9</span>
+            <span class="label" data-dq-pct>11%</span>
+          </div>
+          <div class="dq-bar"><span data-dq-fill></span></div>
+          <div class="dq-q" data-dq-q>
+            <span class="label dq-cat" data-dq-cat>Porte da operação</span>
+            <h3 class="dq-prompt" data-dq-prompt>Quantos quartos (UHs) o hotel possui?</h3>
+            <div class="dq-opts" role="radiogroup" aria-label="Respostas" data-dq-opts></div>
+          </div>
+          <div class="dq-nav">
+            <button class="pill back" type="button" data-dq-back><span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 6H3M6 3L3 6l3 3"/></svg></span>Voltar</button>
+            <button class="pill solid" type="button" data-dq-next disabled><span data-dq-next-t>Próxima</span> <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span></button>
+          </div>
+        </div>
+
+        <!-- step 2: lead gate -->
+        <form class="dq-gate" data-step="gate" hidden>
+          <span class="label"><span class="dot"></span>Diagnóstico concluído</span>
+          <h3 class="dq-prompt">Seu dossiê técnico está pronto.</h3>
+          <p class="dq-gate-p">Para liberar o resultado completo (índice de eficiência, plano de modernização e ganhos estimados), preencha os dados abaixo.</p>
+          <div class="dq-fields">
+            <label>Nome completo<input name="nome" required autocomplete="name"></label>
+            <label>Cargo<input name="cargo" autocomplete="organization-title"></label>
+            <label>E-mail corporativo<input name="email" type="email" required autocomplete="email"></label>
+            <label>WhatsApp<input name="whats" type="tel" required autocomplete="tel" placeholder="(85) 9 0000-0000"></label>
+            <label class="full">Nome do hotel<input name="hotel" required autocomplete="organization"></label>
+          </div>
+          <div class="dq-nav">
+            <button class="pill back" type="button" data-dq-gate-back><span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 6H3M6 3L3 6l3 3"/></svg></span>Revisar respostas</button>
+            <button class="pill solid" type="submit">Ver meu dossiê <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span></button>
+          </div>
+          <p class="dq-note">Seus dados são usados apenas para envio do dossiê e contato comercial da Antena1.</p>
+        </form>
+
+        <!-- step 3: result -->
+        <div class="dq-result" data-step="result" hidden>
+          <div class="dr-head">
+            <div class="dr-gauge">
+              <svg viewBox="0 0 150 150" aria-hidden="true">
+                <circle cx="75" cy="75" r="64" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="10"/>
+                <circle data-dr-ring cx="75" cy="75" r="64" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" transform="rotate(-90 75 75)"/>
+              </svg>
+              <div class="dr-score"><b data-dr-score>0</b><span>de 100 pontos</span></div>
+            </div>
+            <div>
+              <span class="dr-tier" data-dr-tier>Calculando</span>
+              <h3 class="dr-headline" data-dr-headline>Preparando seu dossiê...</h3>
+              <p class="dr-sub" data-dr-sub></p>
+            </div>
+          </div>
+
+          <div class="dr-block">
+            <span class="label">Diagnóstico por dimensão</span>
+            <h4 class="dr-h">O que foi avaliado na sua operação</h4>
+            <p class="dr-p">Cada dimensão reflete uma resposta sua, comparada ao padrão técnico recomendado pela Antena1.</p>
+            <div class="dr-dims" data-dr-dims></div>
+          </div>
+
+          <div class="dr-block">
+            <span class="label">Plano de ação</span>
+            <h4 class="dr-h">O que precisa mudar, em ordem de prioridade</h4>
+            <p class="dr-p">Gerado a partir das dimensões classificadas como Crítico ou Atenção.</p>
+            <ol class="dr-actions" data-dr-actions></ol>
+            <p class="dr-none" data-dr-none hidden>Nenhuma dimensão crítica identificada: o foco agora é manutenção preventiva e preparação para novas tecnologias.</p>
+          </div>
+
+          <div class="dr-block">
+            <span class="label">Ganhos de eficiência ao modernizar</span>
+            <h4 class="dr-h">O que operações semelhantes ganharam com o GPON Antena1</h4>
+            <dl class="facts dr-gains">
+              <div><dt>Energia</dt><dd>Até 70% menos consumo nas salas técnicas, com rede óptica passiva</dd></div>
+              <div><dt>Fornecedores</dt><dd>1 responsável por rede, TV e telefonia</dd></div>
+              <div><dt>Recepção</dt><dd>Menos chamados técnicos, com rede estável e serviços na tela do quarto</dd></div>
+            </dl>
+            <p class="dr-p" style="margin-top:20px">Os percentuais variam conforme o porte e o estado da instalação e são validados na visita técnica gratuita.</p>
+          </div>
+
+          <div class="dr-block">
+            <span class="label">Preparo para novas tecnologias</span>
+            <h4 class="dr-h">Sua infraestrutura está pronta para o próximo passo?</h4>
+            <ul class="dr-next">
+              <li><b>Plataforma digital de hospitalidade</b>TV interativa, check-in digital e pesquisa de satisfação em tempo real exigem rede estável ponto a ponto.</li>
+              <li><b>Automação de quarto (IoT)</b>Iluminação, climatização e fechaduras inteligentes dependem de uma rede única e de baixa latência.</li>
+              <li><b>Streaming em alta demanda</b>Netflix, Prime Video e Globoplay simultâneos exigem banda dedicada, fora da rede administrativa.</li>
+              <li><b>Integração com o PMS</b>Mensagens automáticas e faturamento direto na conta do hóspede dependem de sistemas integrados.</li>
+            </ul>
+          </div>
+
+          <div class="dr-block">
+            <span class="label">Custo de adiar</span>
+            <h4 class="dr-h">Por que isso tende a piorar</h4>
+            <ul class="dr-urgency" data-dr-urgency></ul>
+          </div>
+
+          <div class="dr-cta">
+            <div>
+              <h4 class="dr-h" data-dr-cta>Pronto para modernizar a operação?</h4>
+              <p class="dr-p">Agende uma visita técnica gratuita. Um engenheiro de soluções da Antena1 valida este diagnóstico presencialmente.</p>
+            </div>
+            <div class="dr-cta-btns">
+              <a class="pill solid" href="https://wa.me/5585986013207" target="_blank" rel="noopener" data-dr-schedule>Agendar visita técnica <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span></a>
+              <button class="pill" type="button" data-dr-restart>Refazer <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 6a4 4 0 1 1-1.2-2.8M10 2v3H7"/></svg></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq" aria-labelledby="h-faq">
+    <div class="wrap faq-grid">
+      <div>
+        <span class="label rv">Tire dúvidas</span>
+        <h2 id="h-faq" class="big h-sec rv" style="margin-top:22px"><span class="mask"><span class="w">FAQ</span></span></h2>
+      </div>
+      <div class="qa rv">
+        <details open><summary>A instalação fecha quartos ou exige obra?<span class="pm" aria-hidden="true"></span></summary><p>Não. A fibra óptica é fina e maleável, aproveita os dutos existentes e é instalada por blocos ou andares, sem quebrar paredes e sem interromper a ocupação.</p></details>
+        <details><summary>Preciso trocar os televisores?<span class="pm" aria-hidden="true"></span></summary><p>No modelo IP → RF, não: o sinal novo chega pelo coaxial que já existe. No IP → IP, a plataforma roda em Smart TVs homologadas ou em TVs comuns com um módulo de alta performance.</p></details>
+        <details><summary>Posso escolher os canais?<span class="pm" aria-hidden="true"></span></summary><p>Sim. A grade é montada para cada hotel, de acordo com o perfil dos hóspedes e a operação.</p></details>
+        <details><summary>Dá para integrar ao PMS do hotel?<span class="pm" aria-hidden="true"></span></summary><p>Sim. A plataforma se integra aos principais sistemas hoteleiros para mensagens com o nome do hóspede, pedidos lançados na conta do quarto e encerramento privativo no check-out.</p></details>
+        <details><summary>E os dados do hóspede no streaming?<span class="pm" aria-hidden="true"></span></summary><p>O hóspede conecta as próprias contas, e tudo é apagado automaticamente no check-out.</p></details>
+        <details><summary>Vocês atendem hotéis com TV coletiva antiga?<span class="pm" aria-hidden="true"></span></summary><p>Sim. Instalamos e fazemos manutenção em sistemas de TV coletiva de qualquer marca ou modelo.</p></details>
+        <details><summary>Serve também para hospitais?<span class="pm" aria-hidden="true"></span></summary><p>Sim. A plataforma atende hospitalidade e saúde, com mensagem de boas-vindas para o paciente na tela.</p></details>
+        <details><summary>A Antena1 cuida da internet e da telefonia também?<span class="pm" aria-hidden="true"></span></summary><p>Sim: redes GPON, Wi‑Fi de alta densidade, telefonia IP, CFTV e cabeamento estruturado, com um único parceiro responsável pelo suporte.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final" id="contato" aria-labelledby="h-final">
+    <div class="wrap">
+      <div class="final-card rv">
+        <div>
+          <span class="label"><span class="dot"></span>Visita técnica gratuita</span>
+          <h2 id="h-final" class="big h-sec">Vamos levar a TV nova ao seu hotel</h2>
+          <p>Conte quantos quartos o hotel tem e qual TV usa hoje. Um engenheiro de soluções da Antena1 responde.</p>
+        </div>
+        <div class="final-ctas">
+          <a class="pill light" href="https://wa.me/5585986013207?text=Ol%C3%A1!%20Quero%20uma%20proposta%20de%20TV%20para%20hotel." target="_blank" rel="noopener">Falar no WhatsApp <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span></a>
+          <a class="pill ghost-l" href="mailto:comercial@antena1.srv.br?subject=Proposta%20de%20TV%20para%20hotel&body=Hotel%3A%20%0AQuantidade%20de%20quartos%3A%20%0ATV%20usada%20hoje%3A%20%0ACidade%3A%20">Enviar e-mail</a>
+          <a class="final-tel" href="tel:+5585986013207">(85) 98601-3207</a>
+          <span class="final-addr">Sede em Fortaleza/CE · atendimento em todo o Nordeste</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="logo" href="#topo">Antena1<small>Hotel TV</small></a>
+        <p>Engenharia de redes ópticas e soluções em hospitalidade. 27+ anos em telecomunicações.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul><li><a href="#modelos">Modelos</a></li><li><a href="#canais">Canais</a></li><li><a href="#plataforma">Plataforma</a></li><li><a href="#implantacao">Implantação</a></li><li><a href="#diagnostico">Diagnóstico</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul><li><a href="tel:+5585986013207">(85) 98601-3207</a></li><li><a href="mailto:comercial@antena1.srv.br">comercial@antena1.srv.br</a></li><li>Fortaleza/CE</li></ul>
+      </div>
+    </div>
+    <p class="credits">© 2026 Antena1 Tecnologia. Os logotipos dos canais pertencem às respectivas emissoras e aparecem como exemplo de grade. Fotos via Wikimedia Commons: <a href="https://commons.wikimedia.org/w/index.php?curid=173727581">“Praia de Iracema 24”</a>, de Joelkaula (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>); <a href="https://commons.wikimedia.org/w/index.php?curid=40430828">“Praia de Iracema - Fortaleza CE 3”</a>, de Mayra Pavanello Munerato; <a href="https://commons.wikimedia.org/w/index.php?curid=54346476">“Fortaleza, Ceará, Brazil. Iracema Beach.”</a> e <a href="https://commons.wikimedia.org/w/index.php?curid=54344289">“Cumbuco Beach, Fortaleza”</a>, de Boris Karpuk (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>).</p>
+  </div>
+</footer>
+
+<aside class="dock" aria-label="Contato rápido" data-dock>
+  <a class="fab" href="https://wa.me/5585986013207?text=Ol%C3%A1!%20Quero%20uma%20proposta%20de%20TV%20para%20hotel." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+    <span>Falar com um engenheiro</span>
+  </a>
+  <button class="dock-x" type="button" aria-label="Fechar" data-dock-x><svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3l6 6M9 3l-6 6"/></svg></button>
+</aside>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* reveal on scroll */
+  var els = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin:'0px 0px -8% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* header backdrop after scrolling */
+  var head = document.querySelector('.head');
+  function onScroll(){ head.classList.toggle('scrolled', window.scrollY > 80); }
+  addEventListener('scroll', onScroll, { passive:true }); onScroll();
+
+  /* nav: highlight current section */
+  var links = document.querySelectorAll('.nav a');
+  if ('IntersectionObserver' in window){
+    var navIO = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); });
+      });
+    }, { rootMargin:'-45% 0px -50% 0px' });
+    ['modelos','canais','plataforma','implantacao','diagnostico','faq','contato'].forEach(function(id){ var s = document.getElementById(id); if (s) navIO.observe(s); });
+  }
+
+  /* media slideshow with pause */
+  var media = document.querySelector('[data-media]');
+  var slides = media.querySelectorAll('img'), credit = media.querySelector('[data-credit]');
+  var credits = ['Foto: Joelkaula · CC BY-SA 4.0','Foto: Mayra Pavanello Munerato · CC BY-SA 3.0','Foto: Boris Karpuk · CC BY-SA 3.0'];
+  var si = 0, timer = null, paused = reduce;
+  var btn = media.querySelector('[data-pause]');
+  var icons = { pause:'<rect x="3" y="2" width="2.6" height="10" rx=".6"/><rect x="8.4" y="2" width="2.6" height="10" rx=".6"/>', play:'<path d="M4 2.5v9l7.5-4.5z"/>' };
+  function next(){ slides[si].classList.remove('on'); si = (si + 1) % slides.length; slides[si].classList.add('on'); credit.textContent = credits[si]; }
+  function run(){ if (!paused && !timer) timer = setInterval(next, 6000); }
+  function stop(){ clearInterval(timer); timer = null; }
+  function setIcon(){ btn.querySelector('svg').innerHTML = paused ? icons.play : icons.pause; btn.setAttribute('aria-label', paused ? 'Continuar as fotos' : 'Pausar as fotos'); }
+  btn.addEventListener('click', function(){ paused = !paused; paused ? stop() : run(); setIcon(); });
+  setIcon(); run();
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : run(); });
+
+  /* channel carousel: pause button */
+  var car = document.querySelector('[data-carousel]'), carBtn = document.querySelector('[data-carousel-toggle]');
+  if (car && carBtn){
+    var carIcons = { pause:'<rect x="3" y="2" width="2.6" height="10" rx=".6"/><rect x="8.4" y="2" width="2.6" height="10" rx=".6"/>', play:'<path d="M4 2.5v9l7.5-4.5z"/>' };
+    carBtn.addEventListener('click', function(){
+      var p = car.classList.toggle('paused');
+      carBtn.querySelector('svg').innerHTML = p ? carIcons.play : carIcons.pause;
+      carBtn.setAttribute('aria-label', p ? 'Continuar o carrossel' : 'Pausar o carrossel');
+    });
+  }
+
+  /* live TV greeting */
+  var defaults = { hotel:'Hotel Atlântico', guest:'Sra. Almeida' };
+  document.querySelectorAll('[data-input]').forEach(function(input){
+    input.addEventListener('input', function(){
+      var key = input.dataset.input, val = input.value.trim() || defaults[key];
+      document.querySelectorAll('[data-live="' + key + '"]').forEach(function(el){ el.textContent = val; });
+    });
+  });
+  var clock = document.querySelector('[data-clock]');
+  function tick(){ var d = new Date(); clock.textContent = String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0'); }
+  tick(); setInterval(tick, 20000);
+
+  /* ---------- diagnostic quiz ---------- */
+  (function(){
+    var root = document.querySelector('[data-dq]');
+    if (!root) return;
+    var Q = [
+      { scored:false, cat:'Porte da operação', prompt:'Quantos quartos (UHs) o hotel possui?',
+        options:[{label:'Até 30 UHs'},{label:'31 a 60 UHs'},{label:'61 a 100 UHs'},{label:'Mais de 100 UHs'}] },
+      { scored:true, cat:'Internet / Wi‑Fi', prompt:'Como você classificaria o Wi‑Fi hoje, especialmente em horário de pico?',
+        options:[
+          {label:'Cai com frequência e gera reclamações', pts:0, status:'crit', diag:'Rede saturada, sem capacidade para o volume atual de dispositivos por quarto.', reco:'Redesenho de rede com Wi‑Fi de alta densidade e cobertura ponto a ponto.'},
+          {label:'Funciona, mas fica lento com o hotel cheio', pts:1, status:'warn', diag:'Rede subdimensionada para os picos de ocupação.', reco:'Ajuste de capacidade e balanceamento de canais para suportar 100% de ocupação sem perda.'},
+          {label:'Estável na maior parte do tempo', pts:2, status:'good', diag:'Infraestrutura funcional, com espaço de otimização.', reco:'Monitoramento e ajuste fino de cobertura nas áreas de sombra.'},
+          {label:'Estável, nunca recebemos reclamação', pts:3, status:'ref', diag:'Rede madura e bem dimensionada.', reco:'Manutenção preventiva para preservar o padrão atual.'}
+        ]},
+      { scored:true, cat:'Volume de reclamações', prompt:'Com que frequência hóspedes reclamam de internet, TV ou telefone na recepção?',
+        options:[
+          {label:'Toda semana', pts:0, status:'crit', diag:'O problema já é percebido diariamente pela operação e pelo hóspede.', reco:'Priorizar a modernização da camada com mais reclamações antes das demais.'},
+          {label:'Todo mês', pts:1, status:'warn', diag:'Reclamações recorrentes consomem tempo da equipe de recepção.', reco:'Mapear o padrão das reclamações para direcionar o investimento certo.'},
+          {label:'Raramente', pts:2, status:'good', diag:'Baixo volume de atrito, mas ainda existente.', reco:'Registrar as poucas reclamações para identificar pontos isolados de falha.'},
+          {label:'Nunca', pts:3, status:'ref', diag:'Nenhum sinal perceptível de insatisfação técnica.', reco:'Manter o padrão com manutenção preventiva programada.'}
+        ]},
+      { scored:true, cat:'Distribuição de TV', prompt:'Como o sinal de TV é distribuído hoje nos quartos?',
+        options:[
+          {label:'Antena coletiva / coaxial tradicional, sem canais interativos', pts:0, status:'crit', diag:'Sistema de TV coletiva tradicional, sem espaço para serviços digitais.', reco:'Migração para IPTV com plataforma interativa (a Antena1 também mantém sistemas de TV coletiva de qualquer marca, se a migração completa não for prioridade agora).'},
+          {label:'Sistema misto, parte antigo e parte modernizado', pts:1, status:'warn', diag:'Convivência de dois padrões gera custo de manutenção duplicado.', reco:'Padronizar em um único sistema, reduzindo o custo de manter dois parques distintos.'},
+          {label:'IPTV via rede própria, mas sem plataforma interativa', pts:2, status:'good', diag:'Já resolveu o problema de sinal, falta a camada de serviços ao hóspede.', reco:'Ativar plataforma interativa sobre a rede já existente.'},
+          {label:'IPTV com plataforma interativa e serviços digitais', pts:3, status:'ref', diag:'TV já é um canal de receita e experiência, não só de entretenimento.', reco:'Expandir funcionalidades (pesquisa de satisfação, upsell) sobre a base já pronta.'}
+        ]},
+      { scored:true, cat:'Telefonia', prompt:'Que tipo de telefonia o hotel utiliza?',
+        options:[
+          {label:'PABX analógico antigo', pts:0, status:'crit', diag:'Equipamento com peças cada vez mais raras e caras de repor.', reco:'Migração para telefonia IP completa, unificada à rede de dados.'},
+          {label:'Parcialmente IP, parte analógico', pts:1, status:'warn', diag:'Transição incompleta mantém dois sistemas de suporte.', reco:'Concluir a migração para IP e eliminar o parque analógico remanescente.'},
+          {label:'Telefonia IP completa, mas sem integração', pts:2, status:'good', diag:'Já modernizada, mas operando isolada dos demais sistemas.', reco:'Integrar a telefonia à rede única de dados e TV.'},
+          {label:'Telefonia IP completa e integrada aos demais sistemas', pts:3, status:'ref', diag:'Comunicação unificada e moderna.', reco:'Manter contrato de suporte técnico especializado.'}
+        ]},
+      { scored:true, cat:'Cabeamento / rede lógica', prompt:'Há quanto tempo o cabeamento de rede foi instalado ou atualizado pela última vez?',
+        options:[
+          {label:'Mais de 10 anos, ou nunca atualizado', pts:0, status:'crit', diag:'Cabeamento fora do padrão para a demanda de banda atual.', reco:'Substituição completa por cabeamento estruturado certificado e fibra GPON.'},
+          {label:'Entre 5 e 10 anos', pts:1, status:'warn', diag:'Rede envelhecendo, próxima do limite de capacidade recomendado.', reco:'Planejar a modernização antes que uma falha force uma troca emergencial.'},
+          {label:'Entre 2 e 5 anos', pts:2, status:'good', diag:'Infraestrutura relativamente recente.', reco:'Auditoria técnica para validar capacidade frente ao crescimento de uso.'},
+          {label:'Menos de 2 anos', pts:3, status:'ref', diag:'Cabeamento dentro do padrão atual de mercado.', reco:'Documentar a rede para facilitar manutenções futuras.'}
+        ]},
+      { scored:true, cat:'Fornecedores / integração', prompt:'Os sistemas de TV, Wi‑Fi, telefonia e o PMS são geridos por um único fornecedor?',
+        options:[
+          {label:'Não: cada sistema tem um fornecedor e minha equipe media os conflitos', pts:0, status:'crit', diag:'Tempo da equipe consumido em mediar responsabilidade entre fornecedores.', reco:'Consolidar rede, TV e telefonia sob um único parceiro com SLA único.'},
+          {label:'Parcialmente: alguns sistemas já são integrados', pts:1, status:'warn', diag:'Consolidação parcial já traz algum ganho, mas ainda há atrito.', reco:'Avaliar quais sistemas restantes fazem sentido migrar para o mesmo parceiro.'},
+          {label:'A maior parte já está com um fornecedor único', pts:2, status:'good', diag:'Baixo atrito operacional entre fornecedores.', reco:'Formalizar SLA único para os sistemas remanescentes.'},
+          {label:'Sim, temos um único parceiro responsável', pts:3, status:'ref', diag:'Responsabilidade e suporte totalmente centralizados.', reco:'Revisar periodicamente o contrato de SLA vigente.'}
+        ]},
+      { scored:true, cat:'Reputação / impacto comercial', prompt:'Já recebeu avaliação negativa no Booking, TripAdvisor ou Google citando internet, TV ou conectividade?',
+        options:[
+          {label:'Sim, é um comentário recorrente', pts:0, status:'crit', diag:'A infraestrutura já está custando nota e posicionamento em plataformas de reserva.', reco:'Tratar a modernização como prioridade comercial, não apenas técnica.'},
+          {label:'Já aconteceu algumas vezes', pts:1, status:'warn', diag:'Sinal de alerta antes de se tornar um padrão de avaliação.', reco:'Corrigir o ponto identificado antes que vire tendência nos comentários.'},
+          {label:'Raramente', pts:2, status:'good', diag:'Impacto pontual, provavelmente já contido.', reco:'Monitorar comentários futuros para confirmar que o padrão não se repete.'},
+          {label:'Nunca, ou não identificamos esse padrão', pts:3, status:'ref', diag:'Nenhum dano de reputação identificado.', reco:'Manter o acompanhamento de avaliações como rotina preventiva.'}
+        ]},
+      { scored:true, cat:'Plano de modernização', prompt:'Existe previsão de reforma ou modernização tecnológica nos próximos 12 meses?',
+        options:[
+          {label:'Não há previsão nem orçamento', pts:0, status:'crit', diag:'Sem plano, a modernização tende a acontecer de forma reativa e emergencial.', reco:'Iniciar agora um plano faseado, começando pelo ponto de maior risco identificado.'},
+          {label:'Está em estudo, sem prazo definido', pts:1, status:'warn', diag:'Decisão em andamento, mas ainda sem cronograma.', reco:'Definir prazo e orçamento antes que o adiamento vire indefinido.'},
+          {label:'Está planejada para os próximos 12 meses', pts:2, status:'good', diag:'Já existe intenção e horizonte de execução.', reco:'Validar o escopo técnico com uma visita antes de fechar o orçamento.'},
+          {label:'Já está em execução', pts:3, status:'ref', diag:'Modernização em andamento.', reco:'Garantir que o projeto contemple GPON, TV e telefonia de forma integrada.'}
+        ]}
+    ];
+    var LABEL = { crit:'Crítico', warn:'Atenção', good:'Bom', ref:'Referência' };
+    var $ = function(s){ return root.querySelector(s); };
+    var steps = { quiz:$('[data-step="quiz"]'), gate:$('[data-step="gate"]'), result:$('[data-step="result"]') };
+    var qBox = $('[data-dq-q]'), opts = $('[data-dq-opts]'), next = $('[data-dq-next]'), back = $('[data-dq-back]');
+    var cur = 0, answers = Q.map(function(){ return null; }), lead = {}, autoNext = null;
+
+    function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]; }); }
+    function show(name){
+      Object.keys(steps).forEach(function(k){ steps[k].hidden = k !== name; });
+      var top = root.getBoundingClientRect().top + window.scrollY - 110;
+      if (Math.abs(window.scrollY - top) > 160) window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    function render(dir){
+      var q = Q[cur], pct = Math.round((cur + 1) / Q.length * 100);
+      $('[data-dq-counter]').textContent = 'Pergunta ' + (cur + 1) + ' de ' + Q.length;
+      $('[data-dq-pct]').textContent = pct + '%';
+      $('[data-dq-fill]').style.width = pct + '%';
+      $('[data-dq-cat]').textContent = q.cat;
+      $('[data-dq-prompt]').textContent = q.prompt;
+      opts.innerHTML = '';
+      q.options.forEach(function(o, i){
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'opt'; b.setAttribute('role', 'radio');
+        b.setAttribute('aria-checked', answers[cur] === i);
+        b.innerHTML = '<span>' + esc(o.label) + '</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2l2.4 2.3 4.6-5"/></svg></span>';
+        b.addEventListener('click', function(){
+          answers[cur] = i;
+          opts.querySelectorAll('.opt').forEach(function(x, j){ x.setAttribute('aria-checked', j === i); });
+          next.disabled = false;
+          clearTimeout(autoNext);
+          if (cur < Q.length - 1) autoNext = setTimeout(function(){ go(1); }, 420);
+        });
+        opts.appendChild(b);
+      });
+      next.disabled = answers[cur] === null;
+      $('[data-dq-next-t]').textContent = cur === Q.length - 1 ? 'Ver resultado' : 'Próxima';
+      back.classList.toggle('hide', cur === 0);
+      if (dir && !reduce){ qBox.classList.remove('swap', 'swap-back'); void qBox.offsetWidth; qBox.classList.add(dir > 0 ? 'swap' : 'swap-back'); }
+    }
+    function go(d){
+      clearTimeout(autoNext);
+      if (d > 0 && answers[cur] === null) return;
+      if (d > 0 && cur === Q.length - 1){ show('gate'); steps.gate.querySelector('input').focus({ preventScroll:true }); return; }
+      cur = Math.max(0, Math.min(Q.length - 1, cur + d)); render(d);
+    }
+    next.addEventListener('click', function(){ go(1); });
+    back.addEventListener('click', function(){ go(-1); });
+    $('[data-dq-gate-back]').addEventListener('click', function(){ show('quiz'); });
+
+    steps.gate.addEventListener('submit', function(e){
+      e.preventDefault();
+      new FormData(steps.gate).forEach(function(v, k){ lead[k] = String(v).trim(); });
+      show('result');
+      build();
+    });
+
+    function build(){
+      var dims = [], tot = 0, max = 0;
+      Q.forEach(function(q, i){ if (!q.scored) return; var o = q.options[answers[i]]; tot += o.pts; max += 3; dims.push({ cat:q.cat, status:o.status, diag:o.diag, reco:o.reco }); });
+      var score = Math.round(tot / max * 100), hotel = lead.hotel || 'Seu hotel', tier, cls, head, sub;
+      if (score <= 40){ tier = 'Crítico'; cls = 't-crit'; head = hotel + ' está operando no limite da infraestrutura atual.'; sub = 'Várias dimensões avaliadas já impactam a experiência do hóspede e, possivelmente, sua nota em plataformas de reserva. A modernização deixou de ser melhoria e passou a ser correção de risco.'; }
+      else if (score <= 65){ tier = 'Atenção'; cls = 't-warn'; head = hotel + ' está numa janela ideal para modernizar antes que vire urgência.'; sub = 'A operação ainda funciona, mas alguns pontos identificados tendem a se agravar com o tempo e o uso. Agir agora custa menos do que agir depois de uma falha.'; }
+      else if (score <= 85){ tier = 'Bom'; cls = 't-good'; head = hotel + ' tem uma base sólida, com espaço de otimização.'; sub = 'A maior parte da infraestrutura está no padrão recomendado. Os pontos abaixo mostram onde ainda há ganho de eficiência a capturar.'; }
+      else { tier = 'Referência'; cls = 't-ref'; head = hotel + ' está no padrão técnico recomendado pela Antena1.'; sub = 'O foco agora é manutenção preventiva e avaliar se a operação já está pronta para a próxima camada: plataforma digital de hospitalidade e automação.'; }
+
+      var tierEl = $('[data-dr-tier]');
+      tierEl.textContent = tier; tierEl.className = 'dr-tier ' + cls;
+      $('.dr-gauge').className = 'dr-gauge ' + cls;
+      $('[data-dr-headline]').textContent = head;
+      $('[data-dr-sub]').textContent = sub;
+      var first = (lead.nome || '').split(' ')[0];
+      $('[data-dr-cta]').textContent = first ? first + ', pronto para modernizar a operação?' : 'Pronto para modernizar a operação?';
+
+      var ring = $('[data-dr-ring]'), C = 2 * Math.PI * 64;
+      ring.style.transition = 'none';
+      ring.setAttribute('stroke-dasharray', C); ring.setAttribute('stroke-dashoffset', C);
+      void ring.getBoundingClientRect(); ring.style.transition = '';
+      setTimeout(function(){ ring.setAttribute('stroke-dashoffset', C - score / 100 * C); }, 150);
+      var scoreEl = $('[data-dr-score]'), t0 = null;
+      if (reduce) scoreEl.textContent = score;
+      else requestAnimationFrame(function step(t){ if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1400); scoreEl.textContent = Math.round(score * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); });
+
+      $('[data-dr-dims]').innerHTML = dims.map(function(d){
+        return '<div class="dim"><div class="dim-top"><h5>' + esc(d.cat) + '</h5><span class="st t-' + d.status + '">' + LABEL[d.status] + '</span></div><p>' + esc(d.diag) + '</p><p class="reco"><b>Recomendação:</b> ' + esc(d.reco) + '</p></div>';
+      }).join('');
+
+      var pri = dims.filter(function(d){ return d.status === 'crit'; }).concat(dims.filter(function(d){ return d.status === 'warn'; }));
+      $('[data-dr-actions]').innerHTML = pri.map(function(d){ return '<li><p><b>' + esc(d.cat) + ':</b> ' + esc(d.reco) + '</p></li>'; }).join('');
+      $('[data-dr-none]').hidden = pri.length > 0;
+
+      var urg = [
+        'Equipamentos de TV coaxial e PABX analógico têm peças cada vez mais escassas: o custo de manutenção emergencial sobe a cada ano.',
+        'Notas baixas no Booking e no TripAdvisor citando Wi‑Fi ou TV pesam no ranqueamento da própria plataforma de reserva e reduzem a visibilidade do hotel.',
+        'Uma reforma planejada custa menos e interrompe menos a operação do que uma troca emergencial após uma falha de rede.'
+      ].map(function(t){ return '<li>' + esc(t) + '</li>'; });
+      if (pri.length) urg.push('<li><b>No seu caso:</b> a dimensão “' + esc(pri[0].cat) + '” foi a mais crítica identificada: é o ponto de maior risco de custo e reputação se não for tratado nos próximos meses.</li>');
+      $('[data-dr-urgency]').innerHTML = urg.join('');
+
+      var msg = 'Olá! Fiz o Diagnóstico de Conectividade no site da Antena1 e quero agendar uma visita técnica.\n\n' +
+        'Nome: ' + (lead.nome || '') + (lead.cargo ? ' (' + lead.cargo + ')' : '') + '\n' +
+        'Hotel: ' + (lead.hotel || '') + ' · ' + Q[0].options[answers[0]].label + '\n' +
+        'E-mail: ' + (lead.email || '') + '\nWhatsApp: ' + (lead.whats || '') + '\n' +
+        'Resultado: ' + score + '/100 (' + tier + ')' + (pri.length ? '\nPrioridade: ' + pri[0].cat : '');
+      $('[data-dr-schedule]').href = 'https://wa.me/5585986013207?text=' + encodeURIComponent(msg);
+    }
+
+    $('[data-dr-restart]').addEventListener('click', function(){
+      cur = 0; answers = Q.map(function(){ return null; });
+      render(-1); show('quiz');
+    });
+
+    render();
+  })();
+
+  /* floating dock: after the hero, hidden at the final call */
+  var dock = document.querySelector('[data-dock]'), closed = false;
+  var hero = document.querySelector('.hero'), final = document.getElementById('contato');
+  var heroOut = false, finalIn = false, quizIn = false;
+  function upd(){ dock.classList.toggle('show', !closed && heroOut && !finalIn && !quizIn); }
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ heroOut = !es[0].isIntersecting; upd(); }, { threshold:0.15 }).observe(hero);
+    new IntersectionObserver(function(es){ finalIn = es[0].isIntersecting; upd(); }).observe(final);
+    new IntersectionObserver(function(es){ quizIn = es[0].isIntersecting; upd(); }, { rootMargin:'-20% 0px -20% 0px' }).observe(document.querySelector('[data-dq]'));
+  }
+  document.querySelector('[data-dock-x]').addEventListener('click', function(){ closed = true; upd(); });
+})();
+</script>
+</body>
+</html>

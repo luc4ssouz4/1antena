@@ -1,0 +1,12 @@
+# ferramentas locais
+.agents/
+.aider-desk/
+.claude/
+.codex/
+.impeccable/
+.playwright-mcp/
+.taste-skill/
+skills-lock.json
+
+# cópias de versões anteriores
+index-v*.html
