@@ -4472,6 +4472,23 @@ html[data-theme="light"] .head.scrolled .head-in{background:rgba(7,11,30,.96)}
 .dq-nav .pill[hidden]{display:none}
 .dq-nav .pill{flex:0 0 auto}
 @media (max-width: 820px){ .dq-nav .pill{flex:0 0 auto;justify-content:center} }
+
+/* faixa do diagnóstico: mesmo espaço em cima e embaixo */
+.diag-teaser-wrap{margin-bottom:calc(clamp(80px,9vw,128px) + clamp(-40px,-3vw,-20px))}
+
+/* plataforma: cards com ícone + tag no topo, título e texto alinhados */
+.plat .feat-cards li{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto 1fr;align-content:start;gap:0;padding:26px 24px 28px}
+.plat .feat-cards .fc-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.plat .feat-cards .fc-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:rgba(63,212,232,.12);border:1px solid rgba(63,212,232,.35);color:var(--cyan);transition:background-color .3s ease, color .3s ease, transform .4s var(--ease)}
+.plat .feat-cards .fc-ic svg{width:22px;height:22px}
+.plat .feat-cards li:hover .fc-ic{background:var(--cyan);color:#061016;transform:rotate(-6deg) scale(1.04)}
+.plat .feat-cards .v{margin:0;align-self:center;display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:7px;background:rgba(63,212,232,.10);font-size:10.5px;letter-spacing:.14em;white-space:nowrap}
+.plat .feat-cards h3{font-size:20px;line-height:1.25;min-height:2.5em}
+.plat .feat-cards p{margin-top:10px;font-size:15.5px;line-height:1.6}
+html[data-theme="light"] .plat .feat-cards .fc-ic{color:var(--accent-text);background:rgba(63,212,232,.14);border-color:rgba(10,143,163,.35)}
+html[data-theme="light"] .plat .feat-cards li:hover .fc-ic{color:#061016;background:var(--cyan)}
+html[data-theme="light"] .plat .feat-cards .v{background:rgba(63,212,232,.16)}
+@media (max-width: 560px){ .plat .feat-cards h3{min-height:0} }
 </style>
 </head>
 
@@ -4644,7 +4661,7 @@ html[data-theme="light"] .head.scrolled .head-in{background:rgba(7,11,30,.96)}
       <a class="diag-teaser rv" href="#diagnostico">
         <span class="dt-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M8 32a16 16 0 1 1 32 0" stroke="rgba(255,255,255,.18)" stroke-width="5" stroke-linecap="round"/><path d="M8 32a16 16 0 0 1 24.5-13.5" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M24 32l7-9" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><circle cx="24" cy="32" r="3" fill="#fff"/></svg></span>
         <span class="dt-copy">
-          <b>Seu hotel está pronto para a TV nova?</b>
+          <b>Seu hotel oferece a experiência que o seu hóspede merece?</b>
           <span>Faça o diagnóstico gratuito: 10 perguntas, menos de 2 minutos e o dossiê técnico na hora.</span>
         </span>
         <span class="pill solid dt-btn">Começar diagnóstico <span class="arr"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span></span>
@@ -4658,12 +4675,11 @@ html[data-theme="light"] .head.scrolled .head-in{background:rgba(7,11,30,.96)}
           <div>
             <span class="label rv">Modelos de entrega</span>
             <h2 id="h-modelos" class="big h-sec rv">
-              <span class="mask"><span class="w">Dois caminhos</span></span>
-              <span class="mask" style="--d:90ms"><span class="w">para a TV nova</span></span>
+              <span class="mask"><span class="w">Conheça as soluções sob medida para o seu negócio!</span></span>
+              <!-- <span class="mask" style="--d:90ms"><span class="w">para a TV nova</span></span> -->
             </h2>
           </div>
-          <p class="rv" style="--d:200ms">Escolha o que combina com a infraestrutura que o hotel já tem. Nos dois, a
-            grade de canais é montada sob medida para a operação.</p>
+          <p class="rv" style="--d:200ms">100% Adaptável: Nossa tecnologia funciona na infraestrutura que o seu hotel já possui. Seja qual for a sua escolha, você monta uma grade de canais totalmente personalizada para o perfil do seu público.</p>
         </div>
 
         <div class="models">
@@ -4744,7 +4760,7 @@ html[data-theme="light"] .head.scrolled .head-in{background:rgba(7,11,30,.96)}
             </div>
           </article>
         </div>
-        <p class="label more rv">Também instalamos e mantemos TV coletiva tradicional, de qualquer marca ou modelo.</p>
+        <p class="label more rv" style="width: 100%;display: flex;justify-content: center;">Também instalamos e mantemos TV coletiva tradicional, de qualquer marca ou modelo.</p>
       </div>
     </section>
 
@@ -5060,7 +5076,7 @@ html[data-theme="light"] .head.scrolled .head-in{background:rgba(7,11,30,.96)}
       </div>
       <div class="wrap">
         <div class="ch-foot">
-          <span class="label">81 canais em HD</span>
+          <span class="label">Mais de 80 canais em HD</span>
           <span class="ch-foot-r">
             <span class="ch-note">*Grade sujeita a alterações pela operadora.</span>
             <button class="ctrl" type="button" data-carousel-toggle aria-label="Pausar o carrossel"><svg
@@ -5101,21 +5117,25 @@ html[data-theme="light"] .head.scrolled .head-in{background:rgba(7,11,30,.96)}
             </div>
           </div>
 
-          <ul class="feat">
+          <ul class="feat feat-cards">
             <li class="rv">
-              <h3>Boas-vindas com o nome</h3><span class="v">No check-in</span>
+              <div class="fc-top"><span class="fc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M3 20c.6-3.4 3-5.6 6-5.6s5.4 2.2 6 5.6"/><path d="M17 6.5l1.4-1.4M18.6 10h2M17 13.5l1.4 1.4"/></svg></span><span class="v">No check-in</span></div>
+              <h3>Boas-vindas com o nome</h3>
               <p>Mensagem para o hóspede ou paciente, direto na tela do quarto.</p>
             </li>
             <li class="rv" style="--d:60ms">
-              <h3>Room service e governança</h3><span class="v">Controle ou QR</span>
+              <div class="fc-top"><span class="fc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h16"/><path d="M5.5 17a6.5 6.5 0 0 1 13 0"/><path d="M12 7.5V6M10.5 6h3"/><path d="M3 20h18"/></svg></span><span class="v">Controle ou QR</span></div>
+              <h3>Room service e governança</h3>
               <p>Cardápio, pedidos de arrumação e agendamentos sem ligar para a recepção.</p>
             </li>
             <li class="rv" style="--d:120ms">
-              <h3>Streaming do hóspede</h3><span class="v">Apps próprios</span>
+              <div class="fc-top"><span class="fc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.5" width="18.4" height="12.5" rx="2"/><path d="M10.2 8.4v4.6l4-2.3z"/><path d="M8.5 20.2h7"/></svg></span><span class="v">Apps próprios</span></div>
+              <h3>Streaming do hóspede</h3>
               <p>Ele entra com as próprias contas; tudo é apagado automaticamente no check-out.</p>
             </li>
             <li class="rv" style="--d:180ms">
-              <h3>Pesquisa de satisfação</h3><span class="v">Em tempo real</span>
+              <div class="fc-top"><span class="fc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.6l2.5 5.1 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8z"/></svg></span><span class="v">Em tempo real</span></div>
+              <h3>Pesquisa de satisfação</h3>
               <p>NPS coletado durante a estadia, antes da avaliação no Booking e no TripAdvisor.</p>
             </li>
           </ul>
@@ -5130,12 +5150,11 @@ html[data-theme="light"] .head.scrolled .head-in{background:rgba(7,11,30,.96)}
           <div>
             <span class="label rv">Implantação</span>
             <h2 id="h-impl" class="big h-sec rv">
-              <span class="mask"><span class="w">Sem obra</span></span>
-              <span class="mask" style="--d:90ms"><span class="w">e sem fechar quartos</span></span>
+              <span class="mask"><span class="w">Instalação limpa</span></span>
+              <span class="mask" style="--d:90ms"><span class="w">sem obras e sem quartos fechados</span></span>
             </h2>
           </div>
-          <p class="rv" style="--d:200ms">A fibra é fina e maleável e aproveita os dutos que já existem. A troca é feita
-            por andar ou por bloco, com o hotel aberto e as reservas seguindo normalmente.</p>
+          <p class="rv" style="--d:200ms">Zero interrupções! Usamos cabos ultrafinos que passam pelos dutos e tubulações que o hotel já tem. A instalação é feita por andar ou bloco, sem interferir nas suas reservas, sem sujeira e sem barulho, garantindo que o seu hotel continue funcionando normalmente.</p>
         </div>
         <ol class="steps timeline">
           <li class="step rv"><span class="node">1</span><span class="tag"><span class="dot"></span>Gratuita</span>
