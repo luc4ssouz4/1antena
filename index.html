@@ -4489,6 +4489,12 @@ html[data-theme="light"] .plat .feat-cards .fc-ic{color:var(--accent-text);backg
 html[data-theme="light"] .plat .feat-cards li:hover .fc-ic{color:#061016;background:var(--cyan)}
 html[data-theme="light"] .plat .feat-cards .v{background:rgba(63,212,232,.16)}
 @media (max-width: 560px){ .plat .feat-cards h3{min-height:0} }
+
+/* plataforma: TV e 3 cards com a mesma largura, centralizados */
+.plat{--plat-w:960px}
+.plat .demo{max-width:var(--plat-w)}
+.plat .feat.feat-cards{width:100%;max-width:var(--plat-w);margin:0 auto;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width: 900px){ .plat .feat.feat-cards{grid-template-columns:1fr} }
 </style>
 </head>
 
@@ -5132,12 +5138,7 @@ html[data-theme="light"] .plat .feat-cards .v{background:rgba(63,212,232,.16)}
               <div class="fc-top"><span class="fc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="4.5" width="18.4" height="12.5" rx="2"/><path d="M10.2 8.4v4.6l4-2.3z"/><path d="M8.5 20.2h7"/></svg></span><span class="v">Apps próprios</span></div>
               <h3>Streaming do hóspede</h3>
               <p>Ele entra com as próprias contas; tudo é apagado automaticamente no check-out.</p>
-            </li>
-            <li class="rv" style="--d:180ms">
-              <div class="fc-top"><span class="fc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.6l2.5 5.1 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8z"/></svg></span><span class="v">Em tempo real</span></div>
-              <h3>Pesquisa de satisfação</h3>
-              <p>NPS coletado durante a estadia, antes da avaliação no Booking e no TripAdvisor.</p>
-            </li>
+            </li>
           </ul>
         </div>
       </div>
